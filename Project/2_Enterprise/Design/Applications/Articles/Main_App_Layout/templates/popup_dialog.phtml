@@ -1,0 +1,84 @@
+<?php //======================= DELETE ARTICLE ===================================================?>
+<div id="deleteArticlePopup" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="deleteArticle" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<form method="POST" action="/<?php echo routes::getInstance()->getCurrentTopLevelURLName()?>/content/delete">
+				<h3>Delete Article</h3>
+				<div class="mVm">
+					<span>Are you sure you want to delete this article</span>
+				</div>
+				<input type="hidden" name="article_id" value="" />
+				<input type="hidden" name="route_id" value="" />
+				<div class="mTl clearfix align_c">
+					<input type="submit" class="btn" value="Yes" />
+					<span class="btn pointer mLm" data-dismiss="modal" title="cancel">CANCEL</span>
+				</div>
+			</form>
+    	</div>
+    </div>
+  </div>
+</div>
+
+<?php //======================= ADD ARTICLE ===================================================?>
+<div id="addArticlePopup" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="addArticle" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<form method="POST" id="addArticleForm" action="/<?php echo routes::getInstance()->getCurrentTopLevelURLName()?>/content/add">
+				<h3>Add Article</h3>
+				<span id="addError"></span>
+					<div class="mVs">
+						<span>Article Title</span>	
+						<input type="text" name="article_title"/>	
+					</div>
+					<div class="mTl clearfix align_c">
+						<span class="btn" id="addArticleBtn">Add</span>
+						<span class="btn pointer  mLm" title="cancel" data-dismiss="modal">CANCEL</span>
+					</div>
+			</form>
+    	</div>
+    </div>
+  </div>
+</div>
+
+<?php //======================= DELETE CATEGORY ===================================================?>
+<div id="deleteCategoryPopUp" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="deleteCategory" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<span class="deleteText fc_starfish_gray8 fwB">Are you sure you want to <span class="fc_starfish_red">DELETE</span> this Category?</span>
+			<div id="buttonContainer" class="align_c clearfix">
+				<form method="POST" action="/<?php echo routes::getInstance()->getCurrentTopLevelURLName()?>/category/delete">
+					<input name="article_category_id" type="hidden" value="">
+					<input class="btn yes delete_subcategory_confirm pointer mTs" title="Delete this category" type="submit" name="delete_category" value="Yes">
+					<span class="btn pointer closeDialog mLm mTs" data-dismiss="modal" title="cancel">CANCEL</span>
+				</form>
+			</div>
+    	</div>
+    </div>
+  </div>
+</div>
+
+
+<?php //======================= ADD CATEGORY ===================================================?>
+<div id="addCategoryPopup" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="addCategory" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<form method="POST" id="addCategoryForm" action="/<?php echo routes::getInstance()->getCurrentTopLevelURLName()?>/category/add">
+				<h3>Add Category</h3>
+				<span id="addError"></span>
+					<div class="mVs">
+						<span>Category Name</span>	
+						<input type="text" name="category_name"/>	
+					</div>
+					<div class="mTl clearfix align_c">
+						<span class="btn" id="addCategoryBtn">Add</span>
+						<span class="btn pointer mLm" data-dismiss="modal" title="cancel">CANCEL</span>
+					</div>
+			</form>
+    	</div>
+    </div>
+  </div>
+</div>

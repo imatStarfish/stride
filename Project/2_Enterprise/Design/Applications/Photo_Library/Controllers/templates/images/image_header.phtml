@@ -1,0 +1,8 @@
+<?$album = $this->getAlbum()?>
+<div class="col-xs-3">
+	<h3 class="mVm"><span class="glyphicon glyphicon-picture mRxs"></span><?=$album->getAlbumTitle()."(".$this->getImageCount().")"?></h3>
+	<span id="add_album_size" class="btn small-green-plus" data-toggle="modal" data-target="#new_album_size_dialog"><span class="glyphicon glyphicon-plus mRxs"></span>ADD SIZE</span>
+</div>
+<div class="col-xs-2 col-xs-offset-7">
+	<a class="plainbtn backtoAlbums arrow-left mVxl" href="/photo_library" title="Back to albums"><span class="glyphicon glyphicon-arrow-left mRxs"></span>BACK TO ALBUMS</a>
+</div>

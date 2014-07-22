@@ -1,0 +1,24 @@
+<div id="header" class="clearfix container">
+	<div class="row"> 
+		<div id="welcome_section" class="col-xs-3 clearfix">
+			<h1 id="logo" class="fleft">
+				<a href="/"><img alt="Starfish Enterprise V4" title="Web Design Company in the Philippines" src="/Project/2_Enterprise/Design/Panels/header/images/logo.svg"></a>
+			</h1>
+		</div>
+		<div class="col-xs-3 col-xs-offset-6 pTxl">
+			<div class="fright fs-s" id="login_message_holder">
+				<a title="Edit settings" class="settingsH" accesskey="s" id="settings_nav" href="/settings"><span class="glyphicon glyphicon-cog mRxs"></span>Settings</a>
+				<span class="pHxs">|</span>
+				<a title="Leaving so soon!" class="logoutH" accesskey="x" href="/user/logout"><span class="glyphicon glyphicon-off mRxs"></span>Logout</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div id='navigation' class="col-xs-12">
+			<div id="navWrapper" class="fleft">
+				<?= navigation::displayNavigationForPages('primary','settings');?>
+			</div>
+			<div id="navigation_controls" class="fleft hide"><span id="panLeft" title="pan left" class="sprite fleft pointer"></span><span id="panRight" title="pan right" class="sprite fright pointer"></span></div>
+		</div>
+	</div>
+</div>

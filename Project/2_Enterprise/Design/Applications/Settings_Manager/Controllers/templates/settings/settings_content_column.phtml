@@ -1,0 +1,100 @@
+<?$params = $this->getArrayOfResults();?>
+	<form method="POST" class="w100">
+			<div class="row mVm">
+				<div class="col-xs-12">
+					<h4>Login Settings</h4>
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-xs-6">
+				<div class="col-xs-12">
+					<label for="username">Admin Username</label>
+				</div>
+				<div class="col-xs-12">
+					<input type="text" id="username" name="username" value="<?=$params->__get('username'); ?>" >
+				</div>
+				<div class="col-xs-12">
+					<label for="password">Admin Password</label>
+				</div>
+				<div class="col-xs-12">
+					<input type="password" name="password" id="password">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 mVm">
+				<h4>Email Settings</h4>
+			</div>
+		</div>
+		<div id="smtp" class="row">
+			<div class="col-xs-4">
+				<div class="col-xs-12">
+					<label for="to_email">Email</label>
+				</div>
+				<div class="col-xs-12">
+					<input type="text" name="to_email" id="to_email" value="<?=$params->__get('to_email'); ?>">
+				</div>
+				<div class="col-xs-12">
+					<label for="to_name">Name</label>
+				</div>
+				<div class="col-xs-12">
+					<input type="text" id="to_name" name="to_name" value="<?=$params->__get('to_name'); ?>" />
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="col-xs-12">
+					<label for="smtp_host">SMTP Host</label>
+				</div>
+				<div class="col-xs-12">
+					<input type="text" name="smtp_host" value="<?=$params->__get('smtp_host'); ?>"/>
+				</div>
+				<div class="col-xs-12">
+					<label for="smtp_user">SMTP Username</label>
+				</div>
+				<div class="col-xs-12">
+					<input type="text" name="smtp_user" id="smtp_user" value="<?=$params->__get('smtp_username'); ?>" />
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="col-xs-12">
+					<label for="smtp_pass">SMTP Password</label>
+				</div>
+				<div class="col-xs-12">
+					<input type="text" name="smtp_pass" value="<?=$params->__get('smtp_password'); ?>" />
+				</div>
+				<div class="col-xs-12">
+					<label>SMTP Port</label>
+				</div>
+				<div class="col-xs-12">
+					<input type="text" name="smtp_port" id="smtp_port" value="<?=$params->__get('smtp_port'); ?>" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 mVm">
+				<h4>Google Analytics</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<textarea class="expand170-250 pAm"  name="g_analytics" ><?=$params->__get('google_analytics'); ?></textarea>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12 mVm">
+				<h4>Site Verification</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<input type="text" class="pAm"  name="google_verification" value="<?=$params->__get('google_verification'); ?>" />
+			</div>
+		</div>
+		
+		<div class="row mVm">
+			<div class="col-xs-2 col-xs-offset-10">
+				<input class="save btn" type="submit" name="saveBtn" value="SAVE" />
+			</div>
+		</div>
+</form>

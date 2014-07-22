@@ -1,0 +1,18 @@
+//Framework directory options
+
+
+$mainLayout_path      :'/Project/1_Website/Design/Main_Layout/' !default;
+$scss_path            : '#{$mainLayout_path}scss/' !default;
+$framework_directory  : '#{$root_path}#{$project}#{$scss_path}' !default;
+$mainScripts_path     : '#{$mainLayout_path}scripts/' !default;
+$fonts_path           : '#{$mainLayout_path}css/fonts' !default;
+
+$image_path           : '/Project/1_Website/Design/Main_Layout/images' !default;
+
+$backgrounds          : '#{$image_path}/backgrounds/'!default;
+$sprites              : '#{$image_path}/sprites/' !default;
+$other                : '#{$image_path}/other/' !default;
+
+$boxsizing_path       : '#{$mainScripts_path}boxsizing.htc';
+$border-radius        : '#{$mainScripts_path}border-radius.htc';
+$CSS3-pie             : '#{$mainScripts_path}PIE.htc';

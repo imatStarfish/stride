@@ -1,0 +1,36 @@
+<div id="articleListing" class="pVl pRl pLm">
+	<div class="row">
+		<div class="col-xs-2">
+			<h3>Articles(0)</h3>
+		</div>
+		<div class="col-xs-2 col-xs-offset-8">
+			<span id="addArticle" class="pointer plainbtn" data-toggle="modal" data-target="#addArticlePopup"><span class="glyphicon glyphicon-plus mRs"></span>Add Article</span>
+		</div>
+	</div>
+	<div class="row mTxl clearfix">
+		<div class="col-xs-12">
+			<table id="blogEntries">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Category</th>
+						<th>Status</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if($this->articles):?>
+					<?php foreach($this->articles as $article):?>
+					<tr>
+						<td><a href="/<?php echo routes::getInstance()->getCurrentTopLevelURLName()?>/content/view/<?php echo $article["article_id"]?>" title="<?php echo $article["article_title"]?>"><span class="glyphicon glyphicon-link mRs"></span><?php echo $this->shorten_string($article["article_title"], 4)?></a></td>
+						<td><?php echo $article["category_name"]?></td>
+						<td><?php echo ($article["is_publish"] != 1) ? "Unpublish" : "Publish"?></td>
+						<td><?php echo date("Y-m-d", $article["date_created"])?></td>
+					</tr>
+					<?php endforeach?>
+					<?php endif?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

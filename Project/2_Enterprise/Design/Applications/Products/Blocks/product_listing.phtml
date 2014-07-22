@@ -1,0 +1,36 @@
+<div id="productListing" class="pVl pRl pLm">
+	<div class="row">
+		<div class="col-xs-2">
+			<h3>Products(0)</h3>
+		</div>
+		<div class="col-xs-2 col-xs-offset-8">
+			<span id="addProduct" class="pointer plainbtn" data-toggle="modal" data-target="#addProductPopup"><span class="glyphicon glyphicon-plus mRs"></span>Add Product</span>
+		</div>
+	</div>
+	<div class="row mTxl clearfix">
+		<div class="col-xs-12">
+			<table id="blogEntries">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Category</th>
+						<th>Status</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if($this->products):?>
+					<?php foreach($this->products as $product):?>
+					<tr>
+						<td><a href="/<?php echo routes::getInstance()->getCurrentTopLevelURLName()?>/content/view/<?php echo $product["product_id"]?>" title="<?php echo $product["product_title"]?>"><span class="glyphicon glyphicon-link mRs"></span><?php echo $this->shorten_string($product["product_title"], 4)?></a></td>
+						<td><?php echo $product["category_name"]?></td>
+						<td><?php echo ($product["is_publish"] != 1) ? "Unpublish" : "Publish"?></td>
+						<td><?php echo date("Y-m-d", $product["date_created"])?></td>
+					</tr>
+					<?php endforeach?>
+					<?php endif?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

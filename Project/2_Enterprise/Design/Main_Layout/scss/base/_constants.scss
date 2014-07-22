@@ -1,0 +1,44 @@
+
+$hover : 'no-hover';
+
+$prefix-for-webkit:    true !default;
+$prefix-for-mozilla:   true !default;
+$prefix-for-microsoft: true !default;
+$prefix-for-opera:     true !default;
+$prefix-for-spec:      true !default; // required for keyframe mixin
+
+$prefixes         : webkit moz ms o spec !default;
+$translate        : translateZ(0);
+
+%boxsizing {
+    *,*:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    *behavior: url($boxsizing_path) url($border-radius);
+  }
+}
+
+%cut-text {
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+%sprite {
+  border: none;
+  font-size:0px;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+%defaultSprite{
+  background-image: url($defaultSprite);
+}
+
+%applicationSidebarBackground{
+  background-image: url($applicationSidebar);
+}
+

@@ -1,0 +1,16 @@
+<?php $url	= routes::getInstance()->getCurrentTopLevelURLName();?>
+
+<ul>
+<?php foreach($this->categories as $category):?>
+	<li><a href="/<?php echo $url?>/category/view/<?php echo $category["category_information"]["permalink"]?>"><?php echo $category["category_information"]["category_name"]?></a></li>
+	<?php if(isset($category["subcategory_information"])):?>
+	<li>
+		<ul>
+		<?php foreach($category["subcategory_information"] as $sub_category):?>
+			<li><a href="/<?php echo $url?>/category/view/<?php echo $sub_category["permalink"]?>"><?php echo $sub_category["category_name"]?></a></li>
+		<?php endforeach?>
+		</ul>
+	</li>
+	<?php endif?>
+<?php endforeach?>
+</ul>

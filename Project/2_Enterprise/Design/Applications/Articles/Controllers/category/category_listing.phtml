@@ -1,0 +1,52 @@
+<div id="categoryListing" class="">
+	<div class="row">
+		<div class="col-xs-2">
+			<h3>Categories()</h3>
+		</div>
+		<div class="col-xs-2 col-xs-offset-8">
+			<span id="addCategory" class="pointer plainbtn folder" data-toggle="modal" data-target="#addCategoryPopup"><span class="glyphicon glyphicon-plus mRs"></span>New Category</span>
+		</div>
+	</div>
+	
+	<table id="blogEntries">
+	<thead>
+		<tr>
+			<th>Category Name</th>
+			<th>Description</th>
+			<th>Parent Category</th>
+			<th>Posts</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+			<?php if($this->categories):?>
+			<?php foreach($this->categories as $category):?>
+			<tr>
+				<td>
+					<a href="/<?php echo routes::getInstance()->getCurrentTopLevelURLName();?>/category/view/<?php echo $category->article_category_id?>">
+						<span class="glyphicon glyphicon-folder-open mRs"></span>
+						<?php echo $category->category_name?>
+					</a>
+				</td>
+				<td><?php echo $this->shorten_string($category->description, 10)?></td>
+				<td><?php echo $category->parent_name?></td>
+				<td><?php echo $category->article_count?></td>
+				<td>
+					<span>
+					<a href="/<?php echo routes::getInstance()->getCurrentTopLevelURLName();?>/category/edit/<?php echo $category->article_category_id?>"><span class="glyphicon glyphicon-pencil fs-16"></span></a>
+					</span>
+				</td>
+				<td>
+					<span class="deleteCategory pointer" data-article_category_id="<?php echo $category->article_category_id?>" data-toggle="modal" data-target="#deleteCategoryPopUp"><span class="glyphicon glyphicon-trash fs-16"></span></span>
+				</td>
+			</tr>
+			<?php endforeach?>
+			<?php endif?>
+	</tbody>
+	</table>
+</div>
+
+
+
+

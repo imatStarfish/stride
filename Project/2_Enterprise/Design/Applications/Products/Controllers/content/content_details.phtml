@@ -1,0 +1,119 @@
+<?php $product = $this->product;?>
+<div id="">
+	<form method="POST" action="/<?php echo routes::getInstance()->getCurrentTopLevelURLName();?>/content/update">
+		<input type="hidden" name="product_id" value="<?php echo $product["product_id"];?>" />
+		<div id="editorContainer">
+			<div class="clearfix mVxl row">
+				<div class="col-xs-2">
+					<span class="element_description">Title</span>
+				</div>
+				<div class="element_content col-xs-10">
+					<input type="text" name="product_title" class="longInput" value="<?php echo $product["product_title"];?>" />
+				</div>
+			</div>
+			
+			<div class="clearfix mVxl row">
+				<div class="col-xs-2">
+					<span class="element_description">Date Posted</span> 
+				</div>
+				<div class="col-xs-10">
+					<input type="text" name="date_created" value="<?php echo date("Y-m-d", $product["date_created"]);?>" />
+				</div>
+			</div>
+			
+			<div class="clearfix mVxl row">
+				<div class="col-xs-2">
+					<span class="element_description">Publish</span> 
+				</div>
+				<div class="col-xs-10">
+					<select style="border:1px solid black;" name="is_publish">
+						<option <?php echo ($product["is_publish"] == 1)? "selected" : ""?> value="1">Publish</option>
+						<option <?php echo ($product["is_publish"] == 0)? "selected" : ""?> value="0">Unpublish</option>
+					</select>
+				</div>
+			</div>
+		
+			<div class="clearfix mVxl row image_group">
+				<div class="col-xs-2">
+					<span class="element_description">Image</span>
+				</div>
+				<div class="col-xs-10 clearfix">
+					<div class="image_holder fleft mRl">
+						<div id="image_overflow">
+							<div id="img" style="background-image:url('<?php echo $product["image_thumb"]?>')"></div>
+						</div>
+					</div>
+					<input type="hidden" name="image_id" value="<?php echo $product["image_id"];?>" /> 
+					<span class="show_photo_chooser pointer fleft posAbs btn">Change Image</span>
+				</div>
+			</div>
+			
+			<div class="clearfix mVxl row">
+				<div class="col-xs-2">
+					<span class="element_description">Product Price</span> 
+				</div>
+				<div class="col-xs-10">
+					<input type="text" name="product_price" value="<?php echo $product["product_price"];?>" />
+				</div>
+			</div>
+		
+			<div class="clearfix mVxl row">
+				<div class="col-xs-2">
+					<span class="element_description">Description</span>
+				</div>
+				<div class="element_content col-xs-10">
+					<textarea class="editor" name="product_description">
+						<?php echo $product["product_description"]; ?>
+					</textarea>
+				</div>
+			</div>
+			
+			<div class="clearfix mVxl row">
+				<div class="col-xs-2">
+					<span class="element_description">Category</span>
+				</div>
+				<div class="col-xs-10">
+					<select style="border:1px solid black;" name="product_category_id">
+						<?php if($this->product_categories):?>
+						<option value="0">No Category</option>
+						<?php foreach($this->product_categories as $category):?>
+							<option <?php echo ($product["product_category_id"] == $category->product_category_id) ? "selected" : ""?> value="<?php echo $category->product_category_id?>">
+								<?php echo $category->category_name?>
+							</option>
+						<?php endforeach?>
+						<?php endif?>
+					</select>
+				</div>
+			</div>
+			<div class="clearfix mVxl row">
+				<div class="col-xs-2">
+					<span class="element_description">Permalink</span> 
+				</div>
+				<div class="col-xs-10 element_content">
+					<input type="hidden" name="route_id" value="<?php echo $product["route_id"];?>" />
+					<input type="hidden" name="current_permalink" value="<?php echo $product["product_permalink"];?>" />
+					<input type="text" name="permalink" class="longInput" value="<?php echo $product["product_permalink"];?>" />
+				</div>
+			</div>
+		
+			<div class="clearfix mVxl row">
+				<div class="col-xs-2">
+					<span class="element_description fleft pTxs">Metadata</span>
+				</div>
+				<div class="element_content col-xs-10">
+					<input type="text" name="metadata" class="longInput" value="<?php echo $product["product_metadata"];?>" />
+				</div>
+			</div>
+			
+			<div class="clearfix mVxl row">
+				<div class="col-xs-3 col-xs-offset-9">
+					<input type="submit" class="btn" name="update" value="Save" />
+					<span class="gray-delete icon pointer deleteProduct btnRed" data-product_id="<?php echo $product["product_id"]?>" data-toggle="modal" data-target="#deleteProductPopup" data-route_id="<?php echo $product["route_id"]?>">
+						Delete
+					</span>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+

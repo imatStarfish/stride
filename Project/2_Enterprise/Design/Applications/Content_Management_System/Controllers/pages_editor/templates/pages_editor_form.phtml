@@ -1,0 +1,88 @@
+<?$i = 1;$count = 0;?>
+<!--FOR PHOTO CHOOSER-->
+<form method="post" action="" class="clearfix"  enctype="multipart/form-data" >
+	<div id="editorContainer">
+		<!--XML NODES!-->
+	<?foreach($this->_get('array_of_xml') as $node):?>
+		<?if($node['name'] !== 'data' && $node['tag'] != 'END'):?>
+			<!--IF NODE IS AN IMAGE-->
+			<?if($node['name'] === 'image_id'):$count++;?>
+				<div class="clearfix mVxl row image_group" id="node_<?=$i?>">
+					<div class="col-xs-2">
+						<span class="element_description">Image</span>
+					</div>
+					<div class="col-xs-10 clearfix">
+						<div class="image_holder fleft mRl">
+							<div id="image_overflow">
+								<div id="img" style="background-image:url(<?='http://'.$_SERVER['SERVER_NAME'].'/'.PHOTO_LIBRARY_DIRECTORY.'/'.$node['image_path']?>)"></div>
+							</div>
+						</div>
+						<input class="image_id" type="hidden" name="<?=$i?>" value="<?=$node['value']?>"> <span class="show_photo_chooser pointer fleft posAbs btn" id="node_<?=$i?>">CHANGE IMAGE</span>
+					</div>
+				</div>
+				<?$i++;?>
+			<?elseif($node['name'] === 'image'):?>
+				<div class="clearfix mVxl row image_group" id="node_<?=$i?>">
+					<div class="col-xs-2">
+						<span class="element_description">Image</span>
+					</div>
+					<div class="col-xs-10 clearfix">
+						<div class="image_holder fleft mRl">
+							<div id="image_overflow">
+								<div id="img" style="background-image:url(<?='http://'.$_SERVER['SERVER_NAME'].'/'.PHOTO_LIBRARY_DIRECTORY.'/'.$node['image_path']?>)"></div>
+							</div>
+						</div>
+						<input class="image_id" type="hidden" name="<?=$i?>_image" value="<?=$node['attributes']['id']?>"> 
+						<span class="show_photo_chooser pointer fleft posAbs btn" id="node_<?=$i?>">CHANGE IMAGE</span>
+					</div>
+				</div>
+				<?$i++;?>
+			<?elseif(strpos($node['name'], 'sf_filename') !== FALSE):?>
+				<div class="clearfix mVxl row image_group" id="node_<?=$i?>">
+					<div class="posRel clearfix">
+						<?php if($node['value'] == '.') : ?>
+							<label>Current file: <span>None</span></label><br><br>
+						<?php else : ?>
+							<label>Current file: <span><?=$node['value']?></span></label><br><br>
+						<?php endif; ?>
+						<input type="file" name="<?php echo $node['name']; ?>" class="required trueInputFile">
+					</div>
+				</div>
+				<?$i++;?>
+			<?else:$count = 0;?>
+				<div class="clearfix mVxl row">
+					<?$clean_description = array('_','editor')?>
+						<span class="element_description col-xs-2"><?=str_replace($clean_description, ' ', $node['name'])?></span>
+					<?if($node['value'] !== ''):?>
+						<div class="element_content col-xs-10">
+						<? if(!preg_match('/editor/i', $node['name'])):?>
+							<input type="text" class=" pHs w100 expand25-250" name="<?=$i?>"
+								value="<?=$node['value']?>" />
+						<?else:?>
+							<textarea id="<?=$node['name'] ?>" class="editor" name="<?=$i?>">
+								<?=$node['value']?>
+							</textarea>
+						<?endif;?>
+						</div>
+					<?$i++;?>
+					<?endif;?>
+				</div>
+			<?endif;?>
+		<?endif;?>
+	<?endforeach;?>
+	</div>
+	<div class="clearfix mVxl row">
+		<div class="col-xs-2 col-xs-offset-10">
+			<input class=" mAl btn" type="submit" name="save" value="save" />
+		</div>
+	</div>
+</form>
+
+<div class="popupDialog imageId_error hide">
+	<span class="deleteText fc_starfish_gray8 fwB"><span
+		class="fc_starfish_red">ERROR</span> retrieving albums, check
+		image_id.</span>
+	<div id="button_container">
+		<span class="btn pointer mTs closeDialog" title="check XML file">OK</span>
+	</div>
+</div>

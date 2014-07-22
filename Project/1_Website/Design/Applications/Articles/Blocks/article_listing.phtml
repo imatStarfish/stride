@@ -1,0 +1,12 @@
+<?php $articles = $this->articles?>
+<?php $url		= routes::getInstance()->getCurrentTopLevelURLName();?>
+
+<?php foreach($articles as $article):?>
+	<div id="articleContainer" class="clearfix">
+		<h3><a href="/<?php echo $url?>/<?php echo $article["permalink"]?>"><?php echo $article["article_title"]?></a></h3>
+		<span class="clearfix"><i>Date <?php echo date("Y-m-d", $article["date_modified"])?></i></span>
+		<img src="<?php echo $article["image_path"]?>" />
+		<p><?php echo $this->shorten_string($article["content"], 50)?></p>
+	</div>
+	<br />
+<?php endforeach?>

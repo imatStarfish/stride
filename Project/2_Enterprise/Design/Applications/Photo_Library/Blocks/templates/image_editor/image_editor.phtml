@@ -1,0 +1,169 @@
+<?$image = $this->getImageDetails();?>
+<div id="photo_details_holder" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div  id="imageEditor" class="modal-content popup">
+      <div class="modal-body clearfix">
+      	<div class="fright">
+			<ul class="editorNav">
+				<li class="active"><a href="#details" data-toggle="tab">Details</a></li>
+				<li><a href="#thumbnail" data-toggle="tab">Thumbnail</a></li>
+				<li><a href="#cropping" data-toggle="tab">Cropping</a></li>
+			</ul>
+			<span class="closeModal pointer" data-dismiss="modal">&times;</span>
+      	</div>
+		
+		<div class="tab-content">
+			<!-- details tab -->
+			<div id="details" class="tab-pane active">
+				<h3><span class="glyphicon glyphicon-edit mRxs"></span>Edit Image</h3>
+				<div class="clearfix  mVm row">
+				<form method="post" action="/photo_library/images/updateImage">
+					<input type="hidden" name="image_id" value="<?=$image["image_id"]?>" />
+					<div class="col-xs-5 detailsPrev">
+						<span class="imageDetailsThumb lazy"style="background-image:url('/Data/Images/<?=$image["album_folder"]?>/<?=$image["dimensions"]?>/<?=$image["path"]?>')"></span>
+					</div>
+					<div id="imageDetails" class="col-xs-7">
+						<div class="row mVm">
+							<div class="col-xs-4">
+								<label for="image_title">Tittle</label>
+							</div>
+							<div class="col-xs-8">
+								<input type="text" id="image_title" name="image_title" value="<?=$image["image_title"];?>" class="w100"/>
+							</div>
+						</div>
+						<div class="row mVm">
+							<div class="col-xs-4">
+								<label for="image_caption">Caption</label>
+							</div>
+							<div class="col-xs-8">
+								<textarea class="w100" id="image_caption" name="image_caption"><?=$image["image_caption"];?></textarea>
+							</div>
+						</div>
+						<div class="row mVm">
+							<div class="col-xs-8 col-xs-offset-4">
+								<input type="checkbox" checked id="keep_aspect_ratio" name="keep_aspect_ratio" value="1" />
+								<label for="keep_aspect_ratio">Keep Aspect Ratio : </label>
+							</div>
+						</div>
+						<div class="row mVm">
+							<div class="col-xs-4">
+								<label for="album_id">Album</label>
+							</div>
+							<div class="col-xs-8">
+								<select id="album_id" name="album_id">
+									<?foreach($this->getArrayOfAlbums() as $album):?>
+										<option <?=($image["album_id"] == $album->getAlbumId())? "selected" : ""?>  value="<?=$album->getAlbumId()?>"><?=$album->getAlbumTitle()?></option>
+									<?endforeach?>
+								</select>
+							</div>
+						</div>
+						<div class="row mVm">
+							<div class="col-xs-4">
+								<label for="image_sizes">Image Size</label>
+							</div>
+							<div class="col-xs-8">
+								<select name="image_sizes" id="image_sizes">
+								<?foreach($this->getArrayOfImageSizes() as $image_size):?>
+									<option <?=($image["size_id"] == $image_size->getSizeId())? "selected" : ""?> value='{"size_id":"<?=$image_size->getSizeId();?>", "dimensions":"<?=$image_size->getDimensions();?>", "album_folder":"<?=$image["album_folder"]?>"}' ><?=$image_size->getDimensions();?></option>
+								<?endforeach?>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-8">
+							<input type="submit" name="update_image" class="btn saveChanges fleft mVm" value="SAVE CHANGES"/>
+							</div>
+						</div>
+					</div>
+				</form>
+				</div>
+			</div>
+			
+			<!-- thumbnail tab -->
+			<div id="thumbnail" class="tab-pane">
+			<h3 class="green-image">Thumbnail</h3>
+				<form method="post" action="/photo_library/images/updateImageThumbnail">
+				<div class="clearfix  mVm row">
+					<input type="hidden" name="image_id" value="<?=$image["image_id"]?>" />
+						<div class="col-xs-7">
+							<div id="imageContainer" class="clearfix">
+								<img id="cropper-thumbnail" class="lazy" src="<?="/Data/Images/{$image["album_folder"]}/{$image["dimensions"]}/{$image["path"]}"?>" />
+							</div>
+							<div id="coordinates">
+								<input type="hidden" name="width" />
+								<input type="hidden" name="height" />
+								<input type="hidden" name="x-coordinate1" />
+								<input type="hidden" name="y-coordinate1" />
+								<input type="hidden" name="x-coordinate2" />
+								<input type="hidden" name="y-coordinate2" />
+							</div>
+						</div>
+						<div class="col-xs-5">
+						    <div id="preview-pane-thumbnail">
+							    <div class="preview-container">
+							      <img src="<?="/Data/Images/{$image["album_folder"]}/{$image["dimensions"]}/{$image["path"]}"?>" class="jcrop-preview" alt="Preview" />
+							    </div>
+							</div>
+							
+						</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6 col-xs-offset-6 buttonWrap">
+						<input type="submit" class="btn saveChanges fright mVm" value="SAVE CHANGES"/>
+						<span class="btnDelete fright mVm mRm pointer">DELETE</span>
+					</div>
+				</div>
+				</form>
+			</div>
+			
+			<!-- cropping tab -->
+			<div id="cropping" class="tab-pane">
+			<h3 class="green-image">Cropping</h3>
+				<form method="post" action="/photo_library/images/cropImage">
+					<input type="hidden" name="image_id" value="<?=$image["image_id"]?>" />
+					<input type="hidden" name="album_id" value="<?=$image["album_id"]?>" />
+					<div class="clearfix mVm row">
+						<div class="col-xs-7">
+							<div id="imageContainer" class="clearfix  mVm fleft">
+								<img id="cropper-cropping" class="lazy" src="<?="/Data/Images/{$image["album_folder"]}/{$image["dimensions"]}/{$image["path"]}"?>" />
+							</div>
+						</div>
+						<div class="col-xs-5">
+							<div id="coordinates-cropping" class="clearfix">
+								<div class="mVs">
+									<label for="width" class="mRl">Width</label>
+									<input type="text" name="width" id="width" />
+								</div>
+								<div class="mVs">
+									<label for="height" class="mRm">Height</label>
+									<input type="text" name="height" id="height" />
+								</div>
+								
+								<p id="change_selection" class="pointer mVm fWb"><span class="glyphicon glyphicon-pencil mRm"></span>CHANGE SELECTION</p>
+								
+								<input type="hidden" name="x-coordinate1" />
+								<input type="hidden" name="y-coordinate1" />
+								<input type="hidden" name="x-coordinate2" />
+								<input type="hidden" name="y-coordinate2" />
+							</div>
+							
+						    <div id="preview-pane-cropper">
+							    <div class="preview-container">
+							      <img src="<?="/Data/Images/{$image["album_folder"]}/{$image["dimensions"]}/{$image["path"]}"?>" class="jcrop-preview" alt="Preview" />
+							    </div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6 col-xs-offset-6 buttonWrap">
+							<input type="submit" name="crop_image" class="btn saveChanges fright mVm" value="SAVE CHANGES"/>
+							<span class="pointer btnDelete fright mVm mRm">DELETE</span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+      </div>
+    </div>
+  </div>
+</div>

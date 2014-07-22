@@ -1,0 +1,6 @@
+<div id="articleContainer" class="clearfix">
+<h3><?php echo $this->article["article_title"]?></h3>
+<span class="clearfix"><i><?php echo date("Y-m-d", $this->article["date_modified"])?></i></span>
+<img src="<?php echo $this->article["image_path"]?>" />
+<p><?php echo $this->article["content"]?></p>
+</div>

@@ -1,0 +1,91 @@
+<!-- POPUP DIALOGS FOR ALBUMS -->
+<div id="new_album_dialog" class="modal fade smallModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="createAlbum" class="modal-content popup clearfix">
+    	<div class="modal-body">
+	    <h3><span class="glyphicon glyphicon-plus mRxs"></span>Create Album</h3>
+			<div class="pVm clearfix">
+				<form id="add_album_form" method="POST" action="/photo_library/albums/addAlbum">
+					<div class="mVm">
+						<label for="album_title">Album Name</label>
+						<input id="album_title" class="validate[required] fright" type="text" name="album_title" maxlength="45">
+						<div class="fright">
+							<p class="error" id="error_container"></p>
+						</div>
+					</div>
+					<div class="mVm">
+						<label>Photo Size</label>
+						<div class="fright clearfix">
+							<div class="fleft">
+								<label for="width" class="fleft mRs">w:</label>
+								<input type="text" id="width" name="width" class="validate[required,custom[integer],max[1024]] fright">
+							</div>
+							<div class="fright">
+								<label for="height" class="fleft mRs mLs">h:</label>
+								<input type="text" id="height" name="height" class="validate[required,custom[integer],max[1024]] fright">
+							</div>
+						</div>
+					</div>
+			</form>
+			</div>
+			<div class="fright mVl">
+				<input class="fleft mRs btn mTs" title="create this album" type="submit" name="add_album" value="CREATE ALBUM">
+				<span class="btn pointer mTs fleft" data-dismiss="modal" title="cancel">CANCEL</span>
+			</div>
+    	</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- POP UP OF DELETE ALBUM -->
+<div id="delete_album_dialog" class="modal fade smallModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="deleteAlbum" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<h3><span class="glyphicon glyphicon-trash mRxs"></span>Delete Album</h3>
+			<form class="align_c" method="post" action="/photo_library/albums/deleteAlbum">
+			<strong>Are you sure you want to <span class="error">delete</span> this album?<br />
+			<span class="error">All images</span> in this album will be deleted.</strong>
+			<div class="fright mBxs"><input type="hidden" name="album_id" value="Submit" /></div>
+			<div class="mVm clearfix align_c">
+				<input type="submit" class="btn" name="delete_album" value="Yes" />
+				<span class="btn pointer mLm closeDialog" title="cancel" data-dismiss="modal">Cancel</span>
+			</div>
+			</form>
+    	</div>
+    </div>
+  </div>
+</div>
+
+<!-- POP UP OF EDIT ALBUM -->
+<div id="edit_album_dialog" class="modal fade smallModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="editAlbum" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<h3><span class="glyphicon glyphicon-pencil mRs"></span>Edit</h3>
+			<form method="post" action="/photo_library/albums/editAlbum">
+			<div class="clearfix">
+				<div class="mVm">
+					<label for="album_title">Album Title</label>
+					<input type="text" name="album_title" id="album_title" value="" /> 
+					<input type="hidden" name="album_id" value="" />
+				</div>
+			</div>
+			<div class="mVm clearfix fright">
+				<input type="submit" name="edit_album" class="btn fleft" value="Save" />
+				<span class="btn pointer fleft closeDialog mLm" data-dismiss="modal" title="cancel">CANCEL</span>
+			</div>
+			</form>
+    	</div>
+    </div>
+  </div>
+</div>
+
+<!-- POP UP OF ALBUM EXIST -->
+<div id="album_exist_popup" class="popupDialog hide smallModal">
+	<span id="content"></span>
+	<span class="btn pointer mTs fleft closeDialog" id="test" title="cancel">CANCEL</span>
+</div>
+
+

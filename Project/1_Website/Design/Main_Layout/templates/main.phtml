@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr"
+ xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"><!--<![endif]-->
+
+<head>
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	<?=metaData::getInstance()->getMetaData(); ?>
+		||global_javascript_top||
+		||local_javascript_top||
+		||global_css||
+		||local_css||	 	
+		
+		<script type="text/javascript">
+			%%GOOGLE_ANALYTICS%%
+		</script>
+</head>
+<body <?=$this->getIdForPage(); ?> itemscope itemtype="http://schema.org/WebPage">
+	<!--[if lt IE 9]>
+		<div class="align_c mAuto">
+		<img alt="Starfish Internet Solutions" title="starfish web designer logo" src="/Project/1_Website/Design/Main_Layout/images/other/logo-lt-ie9.png"/>
+		<p><strong>starfi.sh</strong> is best viewed on <a href="http://www.microsoft.com/en-us/download/internet-explorer-9-details.aspx" target="_blank">Internet Explorer 9 and higher</a>. Our website is designed using HTML5 and CSS3 - the latest technologies in web development. Update your Internet Explorer to version 9 or higher, or switch to another browser such as <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Google Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.</p>
+		</div>
+	<![endif]-->
+	<!--[if !IE | gt IE 8]><!-->
+<!-- 		<div id="preloader"> -->
+<!-- 			<div id="status"></div> -->
+<!-- 		</div> -->
+		<div id="wrapper">
+			%%HEADER_CONTENT%%
+			
+			<div id="<?=routes::getInstance()->getCurrentTopLevelPageID()?>_container" class="clearfix">
+				%%MAIN_CONTENT%%
+			</div>
+			
+			%%FOOTER_CONTENT%%
+		</div>
+	<!--<![endif]-->
+		||dialogues||
+		||global_javascript_bottom||
+		<script type="text/javascript">
+			//Cufon.now();
+			||local_javascript_bottom||
+		</script>
+</body>
+</html>

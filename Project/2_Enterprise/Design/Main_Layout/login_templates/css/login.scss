@@ -1,0 +1,55 @@
+/*** Login Module ******************************************************************************************************************************/
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/core/global';
+
+#login_container{
+  #hello_text{
+    font-size:0;
+    @include sprite(203px, 102px, -7px, -7px, 'no-hover',$loginHello);
+  }
+  form#login-form{
+    label{
+      color:$labelGray;
+      font:{
+        size:1.2em;
+        weight:bold;
+      }
+    }
+    label.error{
+      color:$starfishRed;
+      font-size:0.8em;
+    }
+    input{
+      &[type='text'], &[type='password']{
+        font-size:1em;
+        width: 100%;
+        background: $inputGray;
+        border-radius: 2px;
+        border: 1px;
+        padding: 6px;
+        margin: 12px 0;
+        &:focus{
+          background: $inputFocus;
+        }
+      }
+    }
+  }
+}
+div.checker{
+  margin-top: -2px;
+}
+
+.loginbtn-holder{
+  margin:25px auto;
+  padding:5px;
+  display: inline-block;
+  border-radius:3px;
+  @extend %login-gray-black;
+  input{
+    width: 260px !important;
+    height: 55px !important;
+    @extend %login-inner;
+    &:hover,&:active{
+      @extend %login-inner-hover;
+    }
+  }
+}

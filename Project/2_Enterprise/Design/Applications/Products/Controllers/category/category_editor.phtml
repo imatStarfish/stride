@@ -1,0 +1,61 @@
+<div>
+	<form method="POST" action="/<?php echo routes::getInstance()->getCurrentTopLevelURLName()?>/category/save">
+		<input type="hidden" name="product_category_id" value="<?php echo $this->category->product_category_id?>" />
+		<div class="clearfix mVxl row">
+			<div class="col-xs-2">
+				<span class="element_description">Category Name</span>
+			</div>
+			<div class="col-xs-10">
+				<input type="text" name="category_name" class="w100" value="<?php echo $this->category->category_name?>" />
+			</div>
+		</div>
+		<div class="clearfix mVxl row">
+			<div class="col-xs-2">
+				<span class="element_description">Description</span>
+			</div>
+			<div class="col-xs-10">
+				<textarea class="editor" name="description"><?php echo $this->category->description?></textarea>
+			</div>
+		</div>
+		<div class="clearfix mVxl row">
+			<div class="col-xs-2">
+				<span class="element_description">Metadata</span>
+			</div>
+			<div class="col-xs-10">
+				<input type="text" class="w100" name="metadata" value="<?php echo $this->category->metadata?>" />
+			</div>
+		</div>
+		<div class="clearfix mVxl row">
+			<div class="col-xs-2">
+				<span class="element_description">Permalink</span>
+			</div>
+			<div class="col-xs-10">
+				<input type="text" name="permalink" class="w100" value="<?php echo $this->category->permalink?>" />
+			</div>
+		</div>
+		<div class="clearfix mVxl row">
+			<div class="col-xs-2">
+				<span class="element_description">Parent Category</span>
+			</div>
+			<div class="col-xs-10">
+				<select name="parent_id">
+					<option value="">No Parent</option>
+					<?php if($this->parent_categories):?>
+					<?php foreach($this->parent_categories as $parent):?>
+						<?php if($this->category->product_category_id != $parent["product_category_id"]):?>
+						<option <?php echo ($this->category->parent_id == $parent["product_category_id"]) ? "selected" : ""?> value="<?php echo $parent["product_category_id"]?>">
+							<?php echo $parent["category_name"]?>
+						</option>
+						<?php endif?>
+					<?php endforeach?>
+					<?php endif?>
+				</select>
+			</div>
+		</div>
+		<div class="row mVxl clearfix">
+			<div class="col-xs-2 col-xs-offset-10">
+				<input type="submit" name="Save" class="btn" value="Save" />
+			</div>
+		</div>
+	</form>
+</div>

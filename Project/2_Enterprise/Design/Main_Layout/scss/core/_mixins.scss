@@ -1,0 +1,172 @@
+  // USING THE SPRITES AND BACKGROUNDS
+  // $width and $height - defines the image dimensions
+  // $x and $y - defines the image coordinates
+  // $hover  - is used for hover effects
+  //         - you can turn this hover effect off by passing 'no-hover'
+  // $img    - defines the source
+  //         - you can easily override this to use a different source by passing a different variable from the SPRITES SCHEME above
+
+
+@mixin sprite($width, $height, $x, $y, $hover:$hover, $img:$defaultSprite) {
+  @extend %sprite;
+  width: $width;
+  height: $height;
+  background-position: $x $y;
+  background-image: url($img);
+  
+  @if $hover != 'no-hover'{
+    &:hover {
+      background-position: $x $y - $height;
+    }
+  }
+}
+
+@mixin centerElement($width, $height) {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  height: $height;
+  width: $width;
+}
+@mixin background($width,$height,$src,$repeat:no-repeat){
+  @content;
+  
+  @if($width != null){
+    width:$width;
+  }
+  @if($height != null){
+    height:$height;
+  }
+  
+  @if($src == $applicationSidebar){
+    @extend %applicationSidebarBackground;
+  }
+  @else{
+    background:{
+      image:url($src);
+    }
+  }
+  background:{
+      repeat:$repeat;
+    }
+}
+
+// inner box shadow
+@mixin inset-shadow($color:rgba(0,0,0,0.2), $blur:0, $x:0, $y:0) { // color, blur, x, y
+  @include shadow($color, $blur, $y, $x);
+}
+// filter drop shadow
+@mixin drop-shadow($color:rgba(0,0,0,0.2), $blur:0, $x:0, $y:0) { // color, blur, x, y
+  @include shadow($color, $blur, $y, $x);
+}
+
+// box shadow
+@mixin shadow($color, $blur, $x, $y) { // color, blur, x, y
+  @include prefixer('box-shadow', $x $y $blur $color);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=#{$blur}, Direction=135, Color='#{ie-hex-str($color)}')"; // IE8
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=#{$blur}, Direction=135, Color='#{ie-hex-str($color)}'); // IE7-
+  
+   // make filter: drop-shadow not look like poo on retina screens
+  @include prefixer ('transform',$translate);
+}
+
+// transition
+@mixin transition($transition:all 0.2s linear) {
+  @include prefixer ('transition',$transition);
+}
+
+// border radius
+@mixin rounded($radius:4px) {
+  @include prefixer ('border-radius',$radius)
+}
+
+// rotate
+@mixin rotate($deg:0deg) {
+  @include prefixer (transform,rotate($deg))
+}
+
+// ====================
+//       fonts
+// ====================
+
+// font stacks
+@mixin font-stack($primaryFont:"", $secondaryFont:"", $fallbackFonts:"Arial, Helvetica, Tahoma, Verdana, Geneva, sans-serif") {
+  /* might add inline-font-files() at some point */
+  @if $secondaryFont != "" {
+    font-family:#{$primaryFont}, #{$secondaryFont}, #{$fallbackFonts};
+  } @else {
+    @if $primaryFont != "" {
+      font-family:#{$primaryFont}, #{$fallbackFonts};
+    } @else {
+      font-family:#{$fallbackFonts};
+    }
+  }
+}
+
+@mixin font-face($font-name,$font-family) {
+  font-family: $font-family;
+        src: url('#{$fonts_path}/#{$font-name}.eot');
+        src: url('#{$fonts_path}/#{$font-name}.eot?#iefix') format('embedded-opentype'),
+             url('#{$fonts_path}/#{$font-name}.woff') format('woff'),
+             url('#{$fonts_path}/#{$font-name}.ttf') format('truetype'),
+             url('#{$fonts_path}/#{$font-name}.svg##{$font-name}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// engraved text effect
+@mixin letterpress($opacity){
+    text-shadow:white($opacity) 0 1px 0;
+}
+
+//horizontal navigation
+@mixin navigation-list {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+    > li{
+        display:block;
+        float:left;
+        &:last-child{
+            margin-right:0px;
+        }
+    }
+}
+
+@mixin prefixer ($property, $value, $prefixes: webkit moz ms o spec) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      @if $prefix-for-webkit {
+        -webkit-#{$property}: $value;
+      }
+    }
+    @else if $prefix == moz {
+      @if $prefix-for-mozilla {
+        -moz-#{$property}: $value;
+      }
+    }
+    @else if $prefix == ms {
+      @if $prefix-for-microsoft {
+        -ms-#{$property}: $value;
+      }
+    }
+    @else if $prefix == o {
+      @if $prefix-for-opera {
+        -o-#{$property}: $value;
+      }
+    }
+    @else if $prefix == spec {
+      @if $prefix-for-spec {
+        #{$property}: $value;
+      }
+    }
+    @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+@mixin hexToRGB ($property,$color,$opacity:0.4) {
+  #{$property}:rgba(red($color),green($color),blue($color),$opacity);
+}
+

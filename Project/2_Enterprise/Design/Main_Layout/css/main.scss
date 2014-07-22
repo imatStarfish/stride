@@ -1,0 +1,171 @@
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/core/global';
+// @import '/Users/ryeona/Documents/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/core/global';
+
+
+/*the css structure of this project is that the styles for each modules its styles are all included on its pages,
+ * for its easy to transfer to avoid repetition of code on each module
+ * 
+ * only default styles must put in here
+*/
+body{
+  background-color:$bodyGray;
+  
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
+.container{
+  max-width:none!important;
+  width:1170px;
+  margin:0 auto;
+}
+div[id*='_container']{
+  position:relative;
+  background-color:#fff;
+  @include rounded(3px);
+}
+// login
+#login_container{
+  background-color:$bodyGray!important;
+}
+//--------------------------common buttons---------------
+.btn{
+  @include rounded(3px);
+  @extend %button-default;
+  &:active{
+    @extend %button-default-hover;
+  }
+}
+.plainbtn{
+  border:1px solid #000000;
+  color:#000000;
+  opacity:0.3;
+  padding: 2px 6px;
+  display: inline-block;
+  background-color: #fff;
+  line-height:18px;
+  font-size:0.8em;
+  text-decoration:none!important;
+}
+.btnRed{
+  color:#fff;
+  @extend %bloody-red;
+}
+// -------------------------form reset-----------------
+.error{
+  color:#BF1E2D!important;
+  font-weight:bold;
+}
+// -------------------------photo chooser-----------------
+#photo_chooser{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10015;
+    display:none;
+    min-height:100%;
+    border-radius: 3px;
+    padding:30px;
+    background-color:#fff;
+    #albumThumb{
+      z-index:9;
+      position:relative;
+      cursor:pointer;
+      background:{
+        size:cover;
+        repeat:no-repeat;
+        color:#fff;
+        position:center;
+      }
+      &:hover{
+        border-color:$green;
+      }
+    }
+    .albumTittle{
+      color:#222222;
+      font:{
+        size:0.8em;
+        weight:bold;
+      }
+    }
+    .show_images{
+      width:162px;
+      height:151px;
+      .albumTittle{
+        z-index:9;
+      }
+    }
+    .photoThumbnail{
+      height:104px;
+      width:162px;
+      display:block;
+      border:3px solid #ccc;
+    }
+    .albumHr{
+      margin:0!important;
+    }
+    .rotateThumb{
+      position:absolute;
+      top:0;
+      border:5px solid #B3B3B3;
+      @include rotate(10deg);
+    }
+    .thumbWrap{
+    width: 155px;
+    overflow: hidden;
+    .imageListingThumb,.image_preview{
+      width:155px;
+      height:97px;
+      display:block;
+      cursor:pointer;
+      border:3px solid #ccc;
+      background:{
+        size:cover;
+        repeat:no-repeat;
+      }
+      &:hover{
+        border-color:$green;
+      }
+    }
+    .imgName{
+      width:155px;
+      height: 19px;
+      overflow:hidden;
+      text-decoration: none!important;
+      text-overflow:ellipsis;
+      display:block;
+      color:#222222;
+    }
+  }
+}
+// ---------------popupdialogs----------------
+.popup{
+  color: #ffffff;
+  font-size: 14px;
+  background: #1A1A1A;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+  padding: 15px 20px 10px;
+  overflow:hidden;
+  h3{
+    color:#8CC63F;
+    margin-bottom:20px;
+  }
+  form{
+    label{
+      font-weight:bold;
+      line-height:31px;
+    }
+    input{
+      border-radius: 0;
+      height:31px;
+    }
+  }
+}

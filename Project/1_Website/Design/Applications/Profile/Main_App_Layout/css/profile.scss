@@ -1,0 +1,278 @@
+@import 'C:/WORKSPACE/myteleworker/Project/1_Website/Design/Main_Layout/scss/core/global';
+
+#applicationContent{
+  border: 1px solid $bThin;
+  overflow: hidden;
+  margin-bottom: 50px;
+  
+  p{
+     @include NotoReg(13px);
+     color: $fcGray;
+  }
+  
+  #appointmentHead{
+    padding: 30px 30px 20px;
+    border-bottom: 1px solid $bThin;
+    h1{
+      @include NotoBold(32px);
+      color: $bgLightBlue;
+      margin-bottom: 10px;
+    }
+    
+    p{
+       @include NotoReg(14px);
+       color: $fcDarkGray;
+    }
+  }
+  
+  #upcomingTabs{
+    #upcoming{
+      position: absolute;
+      right: 3%;
+      top: 6.5%;
+      li{
+        position: relative;
+        display: inline-block;
+        width: 125px;
+        height: 27px;
+        background-color: #BBBDC0;
+        @include rounded(3px);
+        margin-left: -3px;
+        text-align: center;
+        padding: 4px 0;
+        
+        a{
+          outline: none !important;
+          width: 100%;
+          height: 100%;
+          display: block;
+          color: #FFF;
+          @include NotoBold(14px);
+        }
+        
+        &.selected{
+          background-color: $bgLightBlue;
+        }
+      }
+    }
+    .jscroll-added{
+      text-align: center;
+      margin: 5px 0;
+    }
+    .scrollable.gray-skin{
+      padding-right: 0px;
+    }
+    .scroll-bar.vertical{
+      z-index: 1;
+    }
+    .viewport{
+      width: 818px !important;
+    }
+    .uiWrapper{
+      height: 600px;
+      width: 818px;
+      overflow: hidden;
+      .appointments{
+        width: 818px;
+        border-bottom: 1px solid $bThin;
+        overflow: hidden;
+        min-height: 200px;
+        padding: 20px 30px;
+        
+        .profImage{
+          display: inline-block;
+          width: 110px !important;
+          height: 110px !important;
+          @include rounded(0px);
+          margin-right: 25px;
+        }
+        p#name{
+          @include NotoBold(16px);
+        }
+        p.fs14{
+          @include NotoReg(14px);
+          margin-bottom: 0;
+        }
+        #date{
+          position: absolute;
+          right: 4%;
+          margin-top: -37px;
+        }
+        #category{
+          margin-right: 5px;
+        }
+        
+        &:nth-of-type(odd){
+         background-color: $bgLightGray; 
+        }
+        
+        #buttonsContainer{
+          margin: 20px 0;
+          display: inline-block;
+          
+          .start_videochat_btn{
+            color: #FFF;
+            @include NotoBold(18px);
+            margin-right: 22px;
+            display: inline-block;
+            padding: 10px 15px;
+            height: 45px;
+            @include rounded(3px);
+            background-color: $bgGreen;
+            
+            &:before{
+              content: "";
+              @include sprite(22px, 28px, 0px, -88px, 'no-hover', $sprite);
+              margin-right: 10px;
+            }
+          }
+          .grayedStartButton{
+            background-color: #939597 !important; 
+          }
+          .cancel_appointment_btn{
+            color: #FFF;
+            @include NotoBold(18px);
+            display: inline-block;
+            margin-top: -2px;
+            padding: 10px 15px;
+            height: 45px;
+            @include rounded(3px);
+            background-color: #BBBDC0;
+            
+            &:before{
+              content: "";
+              @include sprite(17px, 24px, 0px, -596px, 'no-hover', $sprite);
+              margin-right: 10px;
+            }
+          }
+          
+          .leave_message_btn{
+            margin: 10px 15px;
+            color: $fcDarkGray;
+            @include NotoBold(16px);
+            
+            &:before{
+              margin-top: -6px;
+              content: "";
+              @include sprite(25px, 23px, 0px, -134px, 'no-hover', $sprite);
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//============================= pOP up ===========================================
+
+#leaveMessageContainer{
+  width: 800px;
+  height: 472px;
+  text-align: left;
+   
+  h4{
+    border-bottom: 1px solid $bThin;
+    margin: 10px 0px;
+    padding: 20px 47px;
+    color: $fcDarkGray;
+    @include NotoBold(25px);
+    
+    &:before{
+      content: "";
+      @include sprite(37px, 23px, 0px, -181px, 'no-hover', $sprite);
+      margin-right: 10px;
+    }
+  } 
+  
+  div.clearfix{
+    padding: 12px 47px;
+    
+    p{
+      color: #6D6E70;
+      @include NotoBold(13px);
+      margin-bottom: 4px;
+    }
+    
+    input, textarea{
+      width: 706px;
+      height: 28px;
+      background-color: #FFF;
+      border: 1px solid $bThin;
+      @include rounded(0px);
+      text-align: left;
+      @include NotoReg(13px);
+      color: $fcDarkGray;
+      padding: 1px 8px;
+    }
+    
+    textarea{
+      height: 180px !important;
+      margin-top: 15px;
+      padding: 8px !important;
+    }
+  }
+}
+
+#cancelAppoint, #videoChatErrorMsg{
+  width: 400px;
+  height: 200px;
+  padding: 40px;
+  
+  h3{
+    @include NotoBold(22px);
+    color: $bgLightBlue;
+    margin: 0;
+    line-height: 30px;
+  }
+  
+  .buttons{
+    text-align: center;
+    
+    .cancel, .yes{
+      background-color: #BBBDC0;
+      @include NotoBold(15px);
+      color: #FFF;
+      @include rounded(2px);
+      text-align: center;
+      width: 80px;
+      height: 30px;
+      display: inline-block;
+      padding: 5px;
+      margin: 20px;
+    }
+    
+    .yes{
+      background-color: $bgGreen;
+      margin-top: 14px;
+    }
+  }
+}
+
+.buttons{
+  text-align: center;
+  margin: 25px 0;
+  
+  #send_message, #cancel_message, #add_booking{
+    background-color: $bgGreen;
+    @include NotoBold(18px);
+    color: #FFF;
+    @include rounded(2px);
+    text-align: center;
+    width: 202px;
+    height: 45px;
+    display: inline-block;
+    padding: 11px;
+  }
+  
+  #add_booking{
+    background-color: $bgOrange;
+  }
+  
+  #cancel_message{
+    background-color: #BBBDC0;
+    margin-left: 20px;
+    width: 118px;
+  }
+}
+

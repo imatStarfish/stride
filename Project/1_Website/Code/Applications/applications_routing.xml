@@ -1,0 +1,37 @@
+<applications>
+	<application>
+	<application_id>Articles</application_id>
+	<requires_login>no</requires_login>
+	<floating_url_name>articles</floating_url_name>
+	<has_main_layout>yes</has_main_layout>
+		<controller default="true">
+			<controller_id>article</controller_id>
+			<url_name>article</url_name>
+			<link_text>article</link_text>
+		</controller>
+		<controller>
+			<controller_id>category</controller_id>
+			<url_name>category</url_name>
+			<link_text>category</link_text>
+		</controller>
+	</application>
+	
+	<application>
+	<application_id>Profile</application_id>
+	<requires_login>no</requires_login>
+	<floating_url_name>no</floating_url_name>
+	<has_main_layout>yes</has_main_layout>
+		<controller default="true">
+			<controller_id>account</controller_id>
+			<url_name>account</url_name>
+			<link_text>account</link_text>
+		</controller>
+		<controller>
+			<controller_id>applications</controller_id>
+			<url_name>applications</url_name>
+			<link_text>applications</link_text>
+		</controller>
+	</application>
+	
+	
+</applications>

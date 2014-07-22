@@ -1,0 +1,23 @@
+<header>
+	<section id="logoHolder" class="fleft clearfix" itemscope itemtype="http://schema.org/Organization">
+		<meta itemprop="name" content="Starfish Internet Solutions"/>
+		<meta itemprop="description" content="A web design agency in Manila, Philippines that makes affordable business websites. We produce high quality and elegant web designs at a competitive price."/>
+		<a itemprop="url" href="/"><img itemprop="logo" alt="affordable websites" title="Starfish Web Design Manila, Philippines" src="/Project/1_Website/Design/Panels/header/images/starfish-logo.svg" /></a>
+	</section>
+	<section class="secondaryNavContainer clearfix">
+		<?= navigation::displayNavigationForPages('secondary', 'blog')?>
+	</section>
+	<section class="primaryNavContainer clearfix">
+			<?= navigation::displayNavigationForPages('primary','home'); ?>
+	</section>
+	
+	<div class="posAbs">
+		<div class="clearfix hide" id="floating_navigation">
+			<?= navigation::displayNavigationForPages('primary','getStarted'); ?>
+			<?= navigation::displayNavigationForPages('secondary', 'blog')?>
+			<?= navigation::displayNavigationForPages('primary','','getStarted'); ?>
+		</div>
+		<span id="navigationDropDown" class="btnDrop"></span>
+	</div>
+	
+</header>

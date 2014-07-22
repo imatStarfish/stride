@@ -1,0 +1,72 @@
+/************************************** HEADER **************************************/
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/core/global';
+  #header{
+    #welcome_section{
+      margin:20px auto;
+      span{
+        display:inline-block;
+      }
+      a{
+        color:#fff;
+        text-decoration:none!important;
+      }
+    }
+    #login_message_holder{
+      a{
+        color:#fff;
+      }
+    }
+    #navigation{
+      padding:4px;
+      border-radius:4px;
+      height:86px;
+      @extend %navigation-black-background;
+      #navWrapper{
+        #primary_nav{
+          margin:0;
+          padding:0;
+          border-radius:3px;
+          overflow:hidden;
+          list-style:none;
+          li{
+            @extend %login-inner;
+            text-align:center;
+            margin-left:2px;
+            float: left;
+            &:hover,&.active{
+              @extend %login-inner-hover;
+              @include inset-shadow(rgba(0,0,0,0.7), 8px, 1px, 0);
+              a{
+                color:#4E4E4E;
+                // text-shadow: 0 1px rgba(255, 255, 255, .75);
+              }
+            }
+            &:first-child{
+              margin:0;
+            }
+            a{
+              display:inline-block;
+              text-decoration:none;
+              padding:19px 20px;
+              float: left;
+              color:white;
+              font-size:12px;
+              font-weight:bold;
+              min-width: 116px;
+            }
+          }
+          &:hover{
+            li.active{
+              @extend %login-inner;
+              box-shadow:none;
+              text-shadow:none;
+              &:hover{
+                @extend %login-inner-hover;
+                // @include inset-shadow(rgba(0,0,0,0.7), 8px, 1px, 0);
+              }
+            }
+          }
+        }
+      }
+    }
+  }

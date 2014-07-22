@@ -1,0 +1,71 @@
+<!-- ******************************		NOTES    ***************************** -->
+<!-- Navigational links are grouped together into how they will be grouped together on the page							--> 
+<!-- Primary Navigation are the most important links of the website 													-->
+<!-- if you dont want the home page link on the primary navigation because its the logo then put it in the SXXDD 		-->
+
+<!-- *******************************	OPTIONS   ****************************************************-->
+<!-- default ="true display default page for website-->
+<!-- language ="en" -->
+<!-- frontend ="hide" if set to page - folder is not required in Design-->
+<!-- cms ="hide" hide page from CMS side navigation-->
+<!-- xml ="default" display default xml page for CMS-->
+<!-- **************************************************************************************************-->
+<pages>
+	<!-- ******************************		Primary Navigation    ************************************ -->
+	<navigation_group>
+		<navigation_group_id>primary</navigation_group_id>
+		
+		<page xml ="default" default="true">
+				<page_id>home</page_id>
+				<url_name>home</url_name>
+				<link_title>HOME</link_title>
+				<link_text>HOME</link_text>
+		</page>
+		
+		<page>
+				<page_id>about</page_id>
+				<url_name>about-us</url_name>
+				<link_title>About our web design services in the Philippines</link_title>
+				<link_text>ABOUT US</link_text>
+		</page>
+		
+		<page>
+				<page_id>profile</page_id>
+				<url_name>profile</url_name>
+				<link_title>Profile</link_title>
+				<link_text>PROFILE</link_text>
+		</page>
+		
+		<page>
+				<page_id>FEATURES</page_id>
+				<url_name>our-features</url_name>
+				<link_title>FEATURES</link_title>
+				<link_text>FEATURES</link_text>
+		</page>
+
+		<page cms="hide">
+				<page_id>articles</page_id>
+				<url_name>articles</url_name>
+				<link_title>News</link_title>
+				<link_text>Articles</link_text>
+		</page>
+	</navigation_group>
+	
+	<!-- ******************************		Secondary Navigation    ************************************ -->
+	<navigation_group>
+		<navigation_group_id>secondary</navigation_group_id>
+		<page>
+			<page_id>contact</page_id>
+			<url_name>contact-us</url_name>
+			<link_title>Get in touch with Starfish</link_title>
+			<link_text>contact us</link_text>
+		</page>
+			<page>
+			<page_id>user</page_id>
+			<url_name>user</url_name>
+			<link_title>Get in touch with Starfish</link_title>
+			<link_text>User</link_text>
+		</page>
+	</navigation_group>
+</pages>
+<!-- **************************************************************************************************-->

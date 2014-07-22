@@ -1,0 +1,11 @@
+<div class="clearfix">
+	<?foreach($this->getArrayOfAlbums() as $album):?>
+		<div data-album_id="<?=$album["album_id"]?>" class="fleft mAm show_images posRel">
+			<span id="albumThumb" class="photoThumbnail" style="background-image:url('/Data/Images/<?=$album["album_folder"]?>/<?=$album["dimensions"]?>_thumb/<?=$album["path"]?>')"></span>
+			<span class="photoThumbnail rotateThumb"></span>
+			<span class="albumTittle"><?=$album["album_title"]?></span>
+		</div>
+	<?endforeach?>
+</div>
+
+<span id="cancel_photo_chooser" class="fright btn mRxxl mTxl">CANCEL</span>

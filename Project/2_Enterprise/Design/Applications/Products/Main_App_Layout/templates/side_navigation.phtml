@@ -1,0 +1,22 @@
+<div class="pAl" id="heading">
+	<h3><span class="glyphicon glyphicon-dashboard mRs"></span>DASHBOARD</h3>
+</div>
+<div class="clearfix" id="sideNavigation">
+	<ul id="productNavigation">
+		<li id="viewPosts">
+		<span class="nav product_list" >
+			<a class="" id="allPost" href="/<?php echo routes::getInstance()->getCurrentTopLevelURLName()?>/"><span class="glyphicon glyphicon-pushpin mRs"></span>ALL POSTS</a>
+		</span>
+		</li>
+		<li  id="viewCategories">
+		<span class="nav product_list">
+			<a class="" id="categoriesList" href="/<?php echo routes::getInstance()->getCurrentTopLevelURLName()?>/category"><span class="glyphicon glyphicon-folder-open mRs"></span>CATEGORIES</a>
+		</span>
+		</li>
+		<li id="viewNewPost">
+			<span class="nav product_list" >
+				<a class="" href="#" data-toggle="modal" data-target="#addProductPopup"><span class="glyphicon glyphicon-plus mRs"></span>NEW POST</a>
+			</span>
+		</li>
+	</ul>
+</div>

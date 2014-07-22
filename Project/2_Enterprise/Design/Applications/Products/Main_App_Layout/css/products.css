@@ -1,0 +1,140 @@
+/*
+
+%large-black-pencil-thin          { @include sprite(31px, 27px, 0px, 0px,'no-hover')         }
+%medium-gray-pencil-thin          { @include sprite(23px,20px,0,-27px,'no-hover')            }
+%small-gray-pencil-fat            { @include sprite(23px,20px,0,-49px,'no-hover')            }
+%smallest-gray-pencil-fat         { @include sprite(14px,13px,-2px,-69px,'no-hover')         }
+
+%arrow-upward                     { @include sprite(12px,15px,-30px,-7px,'no-hover')         }
+%arrow-left                       { @include sprite(27px,10px,-2px,-223.8px,'no-hover')      }
+
+%bin                              { @include sprite(14px,18px,-28px,-29px,'no-hover')        }
+%arrow-down-black                 { @include sprite(14px,9px,-28px,-56px,'no-hover')         }
+%arrow-down-gray                  { @include sprite(14px,9px,-28px,-71px,'no-hover')         }
+%large-green-plus                 { @include sprite(30px,30px,-2px,-86px,'no-hover')         }
+%small-green-plus-boxed           { @include sprite(18px,18px,-1px,-120px,'no-hover',$svg-sprite)        }
+%small-green-plus                 { @include sprite(18px,18px,-21px,-120px,'no-hover')       }
+%small-black-plus                 { @include sprite(18px,15px,0,-528px,'no-hover')           }
+%small-black-plus-ring            { @include sprite(25px,25px,-18px,-155px,'no-hover')       }
+%small-gray-plus-ring             { @include sprite(17px,17px,-18.5px,-182.8px,'no-hover')   }
+
+%large-green-cross               { @include sprite(20px,21px,-20.5px,-281.8px,'no-hover')   }
+
+%small-green-less                 { @include sprite(18px,7px,-23px,-144px,'no-hover')       }
+
+%small-green-check                { @include sprite(16px,11px,-2px,-142px,'no-hover')        }
+
+%small-gray-cross-ring            { @include sprite(17px,17px,-23.5px,-182.8px,'no-hover')   }
+%small-gray-cross                 { @include sprite(12px,12px,-25.5px,-204.8px,'no-hover')   }
+%smallest-darkgray-cross          { @include sprite(9px,9px,-32.4px,-244.5px,'no-hover')     }
+
+%small-gray-dot-ring              { @include sprite(17px,17px,-3.5px,-202.8px,'no-hover')    }
+
+%grill                            { @include sprite(11px,15px,-2px,-237.5px,'no-hover')      }
+%bag                              { @include sprite(11px,14px,-15px,-236.5px,'no-hover')     }
+%folder                           { @include sprite(14px,13px,-28px,-241.5px,'no-hover')      }
+%green-image                      { @include sprite(31px,25px,-7px,-330.5px,'no-hover')      }
+
+%white-gear                       { @include sprite(15px,15px,-3px,-454.5px,'no-hover')      }
+%green-gear                       { @include sprite(40px,40px,-3px,-290.5px,'no-hover')      }
+%left-triangle                    { @include sprite(15px,19px,-13px,-401.8px,'no-hover')      }
+%power-button                     { @include sprite(13px,15px,-23px,-455px,'no-hover')      }
+%two-arrows                       { @include sprite(17px,18px,-1px,-308px,'no-hover')      }
+*/
+#products_container {
+  background-color: #cccccc !important; }
+  #products_container #productContainer #leftColumn {
+    padding: 0; }
+    #products_container #productContainer #leftColumn ul#productNavigation {
+      margin: 0;
+      padding: 0;
+      list-style: none; }
+      #products_container #productContainer #leftColumn ul#productNavigation li span a {
+        font-weight: bold !important;
+        font-size: 1em !important;
+        color: #333;
+        text-decoration: none;
+        padding: 10px 25px;
+        display: block; }
+        #products_container #productContainer #leftColumn ul#productNavigation li span a:hover, #products_container #productContainer #leftColumn ul#productNavigation li span a.active {
+          background-color: #333;
+          color: #fff; }
+  #products_container #productContainer #contentColumn {
+    padding: 0;
+    background-color: #E6E6E6; }
+    #products_container #productContainer #contentColumn table {
+      width: 100%; }
+      #products_container #productContainer #contentColumn table thead {
+        color: #999999;
+        text-align: left; }
+        #products_container #productContainer #contentColumn table thead tr th {
+          padding: 5px; }
+      #products_container #productContainer #contentColumn table tbody tr {
+        border-top: 1px solid #B2B2B2;
+        line-height: 27px; }
+        #products_container #productContainer #contentColumn table tbody tr:first-child {
+          border-top: 0; }
+        #products_container #productContainer #contentColumn table tbody tr td {
+          padding: 5px;
+          color: #000;
+          font-size: 0.8em; }
+          #products_container #productContainer #contentColumn table tbody tr td input {
+            line-height: 20px;
+            padding: 2px; }
+          #products_container #productContainer #contentColumn table tbody tr td a {
+            color: #000;
+            text-decoration: none !important; }
+            #products_container #productContainer #contentColumn table tbody tr td a:hover {
+              opacity: 0.3; }
+  #products_container #productContainer #applicationContent {
+    padding: 20px 20px 20px 50px; }
+    #products_container #productContainer #applicationContent .element_description {
+      display: inline-block;
+      text-transform: capitalize;
+      color: #7E7D82;
+      font-weight: bold;
+      font-size: 14px; }
+    #products_container #productContainer #applicationContent .element_content input[type='text'] {
+      width: 100%; }
+    #products_container #productContainer #applicationContent .image_group .show_photo_chooser {
+      margin-top: 129px; }
+    #products_container #productContainer #applicationContent .image_group .image_holder {
+      padding: 3px;
+      width: 250px;
+      height: 160px;
+      text-align: center;
+      border: 1px solid #DADADA; }
+      #products_container #productContainer #applicationContent .image_group .image_holder > div {
+        width: 100%;
+        height: 100%;
+        padding: 2px; }
+        #products_container #productContainer #applicationContent .image_group .image_holder > div.active {
+          background-color: #8cc63f; }
+        #products_container #productContainer #applicationContent .image_group .image_holder > div #img {
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-position: center center; }
+
+.popup {
+  color: #ffffff;
+  font-size: 14px;
+  background: #1A1A1A;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  padding: 15px 20px 10px; }
+  .popup h3 {
+    color: #8CC63F;
+    margin-bottom: 20px; }
+  .popup form {
+    line-height: 20px; }
+    .popup form input {
+      height: 31px; }
+      .popup form input[name="product_title"] {
+        width: 345px; }
+
+#uploadImage, .modal-dialog {
+  width: 425px; }
+
+#addCategory input[name='category_name'] {
+  width: 239px; }

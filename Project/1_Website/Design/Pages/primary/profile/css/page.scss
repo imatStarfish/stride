@@ -1,0 +1,468 @@
+/************************************** HOMEPAGE **************************************/
+@import 'C:/WORKSPACE/starfish/Project/1_Website/Design/Main_Layout/scss/core/global';
+
+.lt-ie10,.ie10{
+  #wrapper {
+    div[id*='_container']{
+      .topSection{
+        margin-bottom:4% !important;
+      }
+    }
+  }
+}
+
+#wrapper {
+  div[id*='_container']{
+      min-height: 300px;
+      border:none;
+      width:100%;
+      .topSection{
+        //min-width:1200px;
+        margin:0 auto 4%;
+        max-height: 480px;
+        width:100%;
+        overflow:hidden;
+        position:relative;
+        float:left;
+       
+       .zPSlide{
+         position:relative;
+         left:0;top:0;
+         width:100%;
+         height:100%;
+       }
+        .zPSlideCenter{
+          width:100%;
+          height:100%;
+          position:relative;
+          background:{
+            position:center;
+            size:cover;
+            z-index: 1;
+            repeat:no-repeat;
+          }
+          > a{
+            display:inline-block;
+            width:100%;
+            height:100%;
+            position:absolute;
+            top:0;left:0;
+            z-index:9999;
+            text-indent:-999999px;
+          }
+          img{
+            position:relative;
+            margin:0 auto;
+            overflow: hidden;
+            max-width:100%;
+           }
+           &#slider_enterprise{
+             .zPSlideElement{
+               padding:3% 0;
+             }
+           }
+           &#slider_wink{
+             padding:0;
+             .zPSlideElement{
+               > div{
+                 margin:0 auto;
+                 width:100%;
+                 >div.fleft{
+                   width:50%;
+                   &:first-child{
+                     //text-align:right;
+                   }
+                   &:last-child{
+                     text-align:left;
+                   }
+                 }
+               }
+             }
+           }
+           .zPSlideElement{
+             position:relative;
+             z-index:1001;
+             width:100%;
+             height:100%;
+             max-width:1080px;
+             margin:0 auto;
+             background:{
+               position:center center;
+               repeat:no-repeat;
+               size:contain;
+             }
+             >div.percent50{
+               width:50%;
+               text-align:left;
+               &.fleft{
+                 padding-left:3%;
+                 padding-top: 1%;
+               }
+               &.fright{
+                 padding-right:2%;
+               }
+             }
+             #enterprise_learn_more{
+                float: left;
+                width: 40%;
+                margin: 6% 2%;
+             }
+           }
+           >a{
+             position: absolute;
+             width: 100%;
+             height: 100%;
+             text-indent: -99999px;
+           }
+         }
+      }
+      .bottomSection{
+        min-height:300px;
+        margin:0 auto;
+        width:100%;
+        
+        #websiteNeeds,#business,#specialists,#marketingSupport,#workingWithUs,#services{
+          > div{
+            max-width:1103px;
+            margin:0 auto;
+            padding:4% 0% 3%;
+          }
+        }
+        #websiteNeeds{
+          > div{
+            padding:0 0% 3% !important;
+            h1{
+              font-size:4.3em;
+              line-height:43px;
+              font-family:'GEInspira-Bold';
+            }
+            .line{
+              width:280px;
+              margin:69px auto;
+            }
+            .projectNeeds{
+              width:75%;
+              margin:0 auto;
+              >div{
+                margin:7% 7% 0; 
+                width:256px;
+                min-height: 200px;
+                p{
+                  line-height:21px;
+                }
+                h5{
+                  line-height: 20px;
+                  margin-bottom: 10px;
+                }
+                span{
+                  font-family: "GEInspira-Bold";
+                  display:block;
+                  margin-bottom:5px;
+                  &.icon{
+                    margin:10px auto;
+                  }
+                  &.txt{
+                    margin:15px 0 5px;
+                    font:{
+                      size:1.7em;
+                      weight:bold;
+                    }
+                  }
+                }
+                &:nth-child(even){
+                  float:right;
+                }
+              }
+            }
+          }
+        }
+        #business{
+          > div{
+            padding:5% 2% 3%;
+            .screenMac{
+              position:relative;
+              img{
+                width:100%;
+              }
+              #sliderContainer{
+                position:absolute !important;
+                top: 4.5%;
+                left: 3.5%;
+                width: 93% !important;
+                overflow:hidden;
+                background:{
+                  color:#FFFFFF;
+                }
+                .nivo-caption{
+                  display:none!important;
+                }
+              }
+            }
+            #businessThatFits{
+              width: 30%;
+              margin: 0 0 8% 8.5%;
+              p{
+                line-height:33px;
+                font-size:1.8em;
+                margin:30px 0 0 0;
+                &:first-child{
+                  font-size:2.5em;
+                  margin:0;
+                }
+              }
+            }
+            .websiteTypes{
+              margin-top:6%;
+              clear:both;
+              text-align: left;
+              letter-spacing: 1px;
+              > div{
+                width:28%;
+                min-height:240px;
+                &:nth-of-type(3n-1){
+                  margin:0 7%;
+                }
+                h5,p{
+                  line-height:35px;
+                }
+                h5{
+                  font-family: "GEInspira-Bold";
+                  font-size:2em !important;
+                  text-align: left;
+                  letter-spacing: -0.98px;
+                }
+                p{
+                  font-size:1.7em;
+                  >a{
+                   font-size:1.1em!important; 
+                  }
+                }
+                a{
+                  font-family: "GEInspira-Bold";
+                  font-weight:bold;
+                  color:$starfishOrange;
+                  display:inline-block;
+                }
+              }
+            }
+          }
+        }
+        #specialists{
+          > div{
+            > p{
+              margin: 0 9%;
+              a{
+                display:inline-block;
+              }
+            }
+            h2{
+              font-size:4.3em;
+              line-height:43px;
+              margin-bottom:1%;
+              font-family: 'GEInspira-Bold';
+            }
+            .theTeam{
+              width: 84%;
+              margin: 4% auto;
+              >div{
+                width:344px;
+                min-height:350px;
+                &:nth-child(even){
+                  float:right;
+                }
+                p{
+                  margin:7% 0;
+                  font-size:1.7em;
+                  margin-bottom: 6px;
+                }
+                strong,span:last-child{
+                  font-size:1.4em;
+                  display:block;
+                }
+                img{
+                }
+              }
+            }
+          }
+        }
+        #marketingSupport{
+          > div{
+            padding:4% 9% 4%;
+            h2{
+              margin-top: 6%;
+              font-size:3.7em;
+              letter-spacing:-1px;
+              line-height:43px;
+              font-family: 'GEInspira-Bold';
+              &:first-child{
+                margin-top:0;
+                font-family: 'GEInspira-Bold';
+              }
+            }
+            .threeCols{
+              margin-top:6%;
+              > div{
+                width:24.8%;
+                min-height:168px;
+                &:nth-of-type(3n-1){
+                  margin:0 12%;
+                }
+                &:nth-of-type(3n-3){
+                  float:right;
+                }
+                h5{
+                  font-family: "GEInspira-Bold";
+                  font-size:1.7em !important;
+                  margin: 2% 0 2%;
+                }
+                a{
+                  font-family:'GEInspira-Bold';
+                  color:$starfishOrange;
+                  display: inline-block;
+                  span.icon{
+                    &:hover{
+                      opacity:0.5;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        #workingWithUs{
+          position:relative;
+          overflow:hidden;
+          max-height:550px;
+          background:{
+            image:url("/Project/1_Website/Design/Main_Layout/images/backgrounds/mountainrange.jpg");
+            size: cover;
+            repeat:no-repeat;
+            color:#E7E7EF;
+            position:center;
+          }
+          >div{
+            height:100%;
+          }
+          #david_and_friend{
+            margin:0 auto;
+            position:absolute;
+            bottom:0;
+            >img{
+              max-width:100%;
+            }
+          }
+          #swing_at_a_giant{
+            position: absolute;
+            left: 9%;
+            width: 47%;
+            top: 35px;
+            img{
+              max-width:100%;
+            }
+          }
+          div.fright{
+              position: absolute;
+              right: 7%;
+              top: 35px;
+              min-width:240px;
+              width: 30%;
+              max-width: 325px;
+            p{
+              color:#FFFFFF;
+            }
+            .fwB{
+              // bottom:9%;
+              display:none;
+              float:left;
+              line-height: 21px;
+              //text-shadow: 3px 3px 5px #000;
+            }
+            .description{
+              //width: 120%;
+              font-size: 18px;
+              line-height: 28px;
+              display:inline-block;
+              //top: 12%;
+              //position: absolute;
+              text-align: justify;
+            }
+            .threeCols{
+              p{
+                line-height: 21px;
+              }
+            }
+            >a{
+              position:relative;
+              //top:7%;
+              //left:46%;
+              float:left;
+              //margin-left:15px;
+              color:#fff;
+              min-width:260px;
+              border-radius:5px;
+              font-size:1.6em;
+              padding:2px 10px;
+              font-weight:bold;   
+              box-shadow: 0 3px 1px 0px #25431E;
+              -moz-box-shadow: 0 3px 1px 0px #25431E;
+              -webkit-box-shadow: 0 3px 1px 0px #25431E;         
+              }
+            #quote{
+              position:absolute;
+              right:7%;
+              bottom:6%;
+              padding:2%;
+              text-align:center;
+              p:last-child{
+                margin-top: 3%;
+                line-height:15px;
+              }
+            }
+          }
+        }
+        #services{
+          >div{
+            padding:10% 5% 10%;
+            > h2{
+              line-height: 50px;
+              margin-bottom:5%;
+              font-size:4.3em;
+              font-family: 'GEInspira-Bold';
+            }
+            > div.canDo{
+              // padding:0 8%;
+              > div{
+                // margin:5% 5% 0; 
+                //width:46%;
+                width:400px;
+                min-height:140px;
+                &:nth-child(even){
+                  float:right;
+                }
+                h3{
+                  font:{
+                    size:3.2em;
+                    weight: normal;
+                  }
+                }
+                p{
+                  font-size:1.7em;
+                }
+                h3,p{
+                  line-height:35px;
+                }
+                a{
+                  font-family: "GEInspira-Bold";
+                  //width:210px !important;
+                  font-size:1.1em !important;
+                  color:$strongGreen;
+                  font-weight:bold;
+                  display:inline-block;
+                } 
+              }
+            }
+          }
+        }
+    }
+  }
+}

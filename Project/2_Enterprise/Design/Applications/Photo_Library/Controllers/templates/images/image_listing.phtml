@@ -1,0 +1,66 @@
+<?php $album = $this->getAlbum()?>
+
+<div class="clearfix col-xs-12">
+	<!-- start of loop for sizes -->
+	<?php if($this->getArrayOfImages() != NULL):?>
+	<?php foreach($this->getArrayOfImages() as $size_details => $images):?>
+	<?php list($dimension, $size_id) = explode("_", $size_details);?>
+	<span 
+	  class="btn arrow-upward uploadPhoto"
+	  data-toggle="modal"
+	  data-size_id="<?php echo $size_id?>"
+	  data-dimensions="<?php echo $dimension?>"
+	  data-target="#upload-dialog"><span class="glyphicon glyphicon-upload mRxs"></span>UPLOAD PHOTO
+  </span>
+	<div class="clearfix">
+		<div class="mVs clearfix">
+			<h3 class="fleft"><?php echo $dimension?>
+				<span id="delete_size" title="Delete this Size" class="pointer delete_size noText glyphicon glyphicon-trash mLxs" 
+					  data-size_id="<?php echo $size_id?>"
+					  data-toggle="modal" 
+					  data-target="#delete-album-size-dialog">
+				</span>
+			</h3>
+		</div> 
+
+		<div class="imagesContainer" data-size_id="<?php echo $size_id ?>">
+			<!-- start of loop for images -->
+			<?php if($images[0]["image_id"] != NULL):?>
+			<?php foreach($images as $image):?>
+				<div class="fleft mAm thumbWrap clearfix">
+					<div>
+						<a href="/Data/Images/<?=$album->getAlbumFolder()?>/<?=$dimension?>/<?=$image["path"]?>" 
+						   data-title="<?=$image["image_title"]?>" 
+						   data-lightbox="<?=$dimension?>" 
+						   class="imageListingThumb lazy" 
+						   style="background-image:url('/Data/Images/<?=$album->getAlbumFolder()?>/<?=$dimension?>_thumb/<?=$image["path"]?>')">
+						 </a>
+					</div>
+					<p class="imgName fleft"><?=$image["filename"]?></p>
+					<div class="fright mVxs">
+						<span class="edit_image pointer glyphicon glyphicon-edit" data-image_id="<?=$image["image_id"]?>"></span>
+						<span class="delete_image  pointer glyphicon glyphicon-trash" data-image_id="<?=$image["image_id"]?>" ></span>
+					</div>
+				</div>
+			<?endforeach?>
+			<?php else:?>
+			<div class="clearfix" id="noImageContainer">
+				<div id="noImage" class="fwB fc_starfish_gray3 clearfix"><span>No photos in this album size. </span></div>
+			</div>
+			<?endif?>
+			<!-- end of loop for images -->
+		</div>
+		
+	</div>
+	<?php endforeach?>
+	<?php endif?>
+	<!-- end of loop for sizes -->
+</div>
+
+
+
+<!-- this is used in ajax for the popup of image editor -->
+<div id="photo_details_holder_container">
+</div>
+
+

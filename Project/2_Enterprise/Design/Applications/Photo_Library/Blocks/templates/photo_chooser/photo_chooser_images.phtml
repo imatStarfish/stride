@@ -1,0 +1,46 @@
+<div class="clearfix">
+
+	<?php $album = $this->getAlbum()?>
+	
+	<?php if($this->getArrayOfImages() != NULL):?>
+	<?php foreach($this->getArrayOfImages() as $size_details => $images):?>
+	<?php list($dimension, $size_id) = explode("_", $size_details);?>
+		<div class="clearfix">
+		  	<h3 class="fleft"><?php echo $dimension?></h3>
+  			<?php if($images[0]["image_id"] != NULL):?>
+			<?php foreach($images as $image):?>
+				<div class="fleft mAm thumbWrap clearfix">
+					<div class="show_use_image_popup" data-image_id="<?=$image["image_id"]?>" data-image_path="/Data/Images/<?=$album->getAlbumFolder()?>/<?=$dimension?>/<?=$image["path"]?>">
+						<span class="image_preview" style="background-image:url('/Data/Images/<?=$album->getAlbumFolder()?>/<?=$dimension?>_thumb/<?=$image["path"]?>')"></span>
+					</div>
+					<span class="imgName fleft"><?=$image["filename"]?></span>
+				</div>
+			<?php endforeach?>
+			<?php endif?>
+		</div>
+	<?php endforeach?>
+	<?php endif?>
+</div>
+<div class="clearfix">
+	<span id="cancel_photo_chooser" class="btn mTxl mRxxl fright">CANCEL</span>
+</div>
+
+<!-- pop up dialog -->
+<div id="use_image_popup" class=" modal fade smallModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="uploadImage" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<h3>Use Image</h3>
+			<div class="mVm">
+				<span>Are you sure you want to use this image?</span>
+			</div>
+			<input type="hidden" id="image_path" />
+			<input type="hidden" id="image_id" />
+			<div class="mTl clearfix align_c">
+				<span id="use_image" class="btn">Yes</span>
+				<span class="btn pointer mLm" data-dismiss="modal" title="cancel">CANCEL</span>
+			</div>
+    	</div>
+    </div>
+  </div>
+</div>

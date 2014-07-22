@@ -1,0 +1,71 @@
+<div class="tab-content fs-15">
+  
+  <?php //part 1----------------------------------------------------------?>
+  <div class="tab-pane active" id="part1">
+  		<div>
+  			Date of Application: <input type="text" name="date_of_application">
+  		</div>
+  		<div>
+  			Name of Principal Applicant (University): <input type="text" name="principal_name">
+  		</div>
+  		<div>
+  			Building / Unit No. <input type="text" name="unit_number" />
+  		</div>
+  		<div>
+  			Street. <input type="text" name="street" />
+  		</div>
+  		<div>
+  			Municipal City. <input type="text" name="municipal_city" />
+  		</div>
+  		<div>
+  			Postal Code. <input type="text" name="postal_code" />
+  		</div>
+  		
+  		<button type="button" class="btn next-btn btn-primary" data-part_number="1">Save & Next</button>
+  </div>
+  
+  <?php //part 2----------------------------------------------------------?>
+  <div class="tab-pane" id="part2">
+  	<div>
+	  	<p>a.  Name of Co-applicant (US University) (attached/ upload proof of communication as Attachment A)</p>
+  		<br/>
+  			Surname. <input type="text" name="surname" />
+  			<br />
+  			Given Name. <input type="text" name="given_name" />
+  			<br />
+  			Middle Name. <input type="text" name="middle_name" />
+  			<br />
+  			Master's Degree. <input type="text" name="masters_degree" />
+  			<br />
+  			Doctorate Degree. <input type="text" name="doctorate_degree" />
+  	</div>
+  	<button type="button" class="btn prev-btn btn-primary" data-part_number="2">Save &  Prev</button>
+  	<button type="button" class="btn next-btn btn-primary" data-part_number="2">Save &  Next</button>
+  </div>
+  
+  <?php //part 3----------------------------------------------------------?>
+  <div class="tab-pane" id="part3">
+  		<p>Past Performance References (Required).  All applicants are subject to a past performance reference check.  Applicants must provide name, address, and other contact information of at least three past performance references below in relation with the collaborative research works provided in Part II of this form.											
+  		</p>
+  		<?php foreach(range(1, 3) as $i):?>
+  			<div>
+	  			Name : <input type="text" name="name<?php echo $i?>" />
+	  			<br />
+	  			Address : <input type="text" name="address<?php echo $i?>" />
+	  			<br />
+	  			Email : <input type="text" name="email<?php echo $i?>" />
+	  			<br />
+	  			Telephone : <input type="text" name="telephone<?php echo $i?>" />
+  			</div>
+  			<hr/>
+  		<?php endforeach?>
+	  	
+	  	<button type="button" class="btn prev-btn btn-primary" data-part_number="3">Save & Prev</button>
+	  	<button type="button" class="btn next-btn btn-primary" data-part_number="3">Save & Next</button>
+  </div>
+  
+  <?php //part 4----------------------------------------------------------?>
+  <div class="tab-pane" id="part4">
+  
+  </div>
+</div>

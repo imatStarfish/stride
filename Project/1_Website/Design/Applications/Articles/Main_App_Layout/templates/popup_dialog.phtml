@@ -1,0 +1,42 @@
+<!-- Leave Message Popup -->
+<div class="popUp hide" id="leaveMessageContainer">
+	<p class="closeBtn pointer">x</p>
+	<form  method="POST" name="message_form">
+		<h4>Send Message</h4>
+		<div class="clearfix">
+			<input type="hidden" name="user_id" />
+			<p>Subject</p>
+			<input type="text" name="subject" />
+			<textarea name="message" placeholder="Type in your other concerns.." ></textarea>
+			
+			<div class="buttons">
+				<span id="send_message" class="pointer">Send Message</span>
+				<span id="cancel_message" class="pointer">Cancel</span>
+			</div>
+		</div>
+	</form>
+</div>
+
+<!-- cancel appointment dialog -->
+<div class="popUp hide posFix" id="cancelAppoint">
+	<form method="POST" action="/booking/booking/cancelBooking">
+		<h3>Are you sure you want to cancel this appointment?</h3>
+		<div class="buttons">
+			<input class="yes pointer" type="submit" name="cancel_appointment" value="Yes" />
+			<input type="hidden" name="booking_id" value="" />
+			<input type="hidden" name="user_id" value="" />
+			<span class="cancel pointer">No</span>
+		</div>
+	</form>
+</div>
+
+
+<!-- videoChatErrorMsg dialog -->
+<div class="popUp hide posFix" id="videoChatErrorMsg">
+	<form method="POST" action="/">
+		<h3>You cannot click this button until the right time comes.</h3>
+		<div class="buttons">
+			<span class="cancel pointer">OK</span>
+		</div>
+	</form>
+</div>

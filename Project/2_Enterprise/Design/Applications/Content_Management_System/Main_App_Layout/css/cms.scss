@@ -1,0 +1,133 @@
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/core/global';
+// @import '/Users/ryeona/Documents/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/core/global';
+
+/* general styles for CMS or aticle with side navigation
+ * copy these style ang change the Wrapper id
+*/
+#cmsWrapper{
+  background-color:#E6E6E6;
+  @include rounded (3px);
+  // left side Navigation
+  #leftColumn{
+    padding:0;
+    #heading{
+      h3{
+        display:inline;
+      }
+    }
+    #sideNavigation{
+      ul{
+        margin: 0;
+        padding:0;
+        li{
+          position:relative;
+          &:hover{
+            > span{
+              background-color:$grayHover;
+              a{
+                color:#fff;
+              }
+            }
+          }
+          > ul{
+            padding:0;
+            > li{
+              >span{
+               >a{
+                 margin:0 40px;
+                 padding:0!important;
+                 text-transform:capitalize!important;
+               }
+              }
+            }
+          }
+          span{
+            padding: 5px 0px 5px;
+            display: block;
+            a{
+              display:block;
+              padding: 5px 35px 5px 20px;
+              color: #333333;
+              font-size: 1em;
+              font-weight: bold;
+              text-align: left;
+              white-space: normal;
+              word-wrap: break-word;
+              text-decoration:none;
+              text-transform:uppercase;
+            }
+          }
+        }
+      }
+    }
+    //sub level Ul
+    .subNav{
+      display:none
+    }
+    .hasSecond{
+      .expand{
+        position:absolute;
+        right:13px;
+        top:6px;
+        z-index:99;
+        color:#8CC63F;
+      }
+    }
+  }
+  // right side content editor
+  #contentColumn{
+    min-height:600px;
+    padding:0px;
+    border-left:3px solid $columnBorder;
+    background-color:#fff;
+    #applicationContent{
+      padding: 20px 20px 20px 50px;
+      .element_description{
+        display:inline-block;
+        text-transform: capitalize;
+        color: #7E7D82;
+        font-weight: bold;
+        font-size: 14px;
+      }
+      .element_content{
+        textarea{
+          width:650px !important;
+        }
+      }
+      //photo selector
+      .image_group{
+        .show_photo_chooser{
+          margin-top: 129px;
+        }
+        .image_holder{
+          padding: 3px;
+          width: 250px;
+          height: 160px;
+          text-align: center;
+          border: 1px solid #DADADA;
+          > div {
+            width:100%;
+            height:100%;
+            padding:2px;
+            &.active{
+              background-color:#8CC63F
+            }
+            #img{
+              width:100%;
+              height:100%;
+              background-size: cover;
+              background-position: center center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// -----------modals--------
+.smallModal{
+  .modal-dialog{
+    width: 470px;
+  }
+}

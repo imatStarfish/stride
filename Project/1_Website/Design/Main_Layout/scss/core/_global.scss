@@ -1,0 +1,18 @@
+//** for reference go to http://sass-lang.com ***********************************************************************//
+// @import is static therefore variable can't be used to specify directories
+$project        :'blank' !default;
+$root_path      : 'C:/WORKSPACE/' !default;
+
+@import 'C:/WORKSPACE/blank/Project/1_Website/Design/Main_Layout/scss/base/settings';
+@import 'C:/WORKSPACE/blank/Project/1_Website/Design/Main_Layout/scss/base/constants';
+@import 'C:/WORKSPACE/blank/Project/1_Website/Design/Main_Layout/scss/base/images';
+@import 'C:/WORKSPACE/blank/Project/1_Website/Design/Main_Layout/scss/base/colorschemes';
+@import 'C:/WORKSPACE/blank/Project/1_Website/Design/Main_Layout/scss/core/mixins';
+
+
+
+
+
+
+
+

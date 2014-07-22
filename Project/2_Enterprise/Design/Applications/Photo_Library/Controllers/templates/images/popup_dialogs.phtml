@@ -1,0 +1,60 @@
+<!-- UPLOAD IMAGE POPUP DAILOG -->
+<div id="upload-dialog" class="modal fade modalXl" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div id="uploadImage" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<h3><span class="glyphicon glyphicon-upload mRxs"></span>Upload Photo</h3>
+			<form id="upload-image" class="dropzone" name="photo" action="/photo_library/images/uploadImage" enctype="multipart/form-data"  method="POST">
+			
+				<div class="fallback">
+					<input name="photo[]" type="file" multiple />
+					<input type="hidden" name="album_id" value="<?php echo $_GET["album_id"]?>">
+					<input type="submit" name="fallback_submit" value="Upload" />
+	  			</div>
+				<input type="hidden" name="album_id" value="<?php echo $_GET["album_id"]?>">
+				<input type="hidden" name="dimension" value="">
+				<input type="hidden" name="size_id" value="">
+				<span id="error"></span>
+			</form>
+			<div class="mBm mTl col-xs-offset-3 buttons">
+				<span class="btn pointer fleft cancelBtn" data-dismiss="modal" title="cancel">CANCEL</span>
+				<span class="btn pointer fleft uploadingBtn hide disabled" title="done">UPLOADING.....</span>
+				<span class="btn pointer fleft doneBtn hide" data-dismiss="modal" title="done">DONE</span>
+			</div>
+    	</div>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE IMAGE POPUP DIALOG -->
+<div id="delete-image-dialog" class="modal fade smallModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="deleteImage" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<h3 class="error"><span class="glyphicon glyphicon-trash mRxs"></span>Delete</h3>
+			<form id="delete_image" name="photo" action="/photo_library/images/deleteImage" method="POST">
+				<input type="hidden" name="image_id" value="">
+				<span>Are you sure you want to <span class="error">delete</span> this photo?</span>
+				<div class="fright mBm mTl">
+					<input class="btn fleft mRxs " type="submit" name="delete_photo" value="DELETE">
+					<span class="btn pointer  fleft closeDialog" data-dismiss="modal" title="cancel">CANCEL</span>
+				</div>
+			</form>
+    	</div>
+    </div>
+  </div>
+</div>
+
+<div id="delete-image-error" class="modal fade smallModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="deleteImafeError" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<h3 class="error">Error</h3>
+			<div class="mVl clearfix align_c">
+				The image is possibly used in <span id="page"></span> page
+			</div>
+			<span class="btn pointer  fright closeDialog" data-dismiss="modal" title="cancel">OK</span>
+    	</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div id="new_album_size_dialog" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="createAlbumSize" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<h3>Create Album Size</h3>
+			<div class="pVm clearfix">
+				<form id="add_album_size_form" method="POST" action="/photo_library/albums/addAlbumSize">
+					<div class="clearfix">
+						<div class="clearfix">
+							<input type="hidden" name="album_id" value="<?=$_GET["album_id"]?>">
+							<strong>Dimension</strong>
+							<span style="color:red" id="error_container"></span>
+							<div class="fright clearfix">
+								<div class="fleft"><strong class="fs-m">w:</strong><input id="" type="text" name="width" class="validate[required,custom[integer],max[1024]] fright"></div>
+								<div class="fright"><strong class="fs-m">h:</strong><input type="text" name="height" class="validate[required,custom[integer],max[1024]] fright"></div>
+							</div>
+						</div>
+					</div>
+					<div class="fright mVl">
+						<input class="fleft mRs btn mTs" title="create this album" type="submit" name="add_size" value="CREATE ALBUM">
+						<span class="btn pointer mTs fleft closeDialog" data-dismiss="modal" title="cancel">CANCEL</span>
+					</div>
+				</form>
+			</div>
+    	</div>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE ALBUM SIZE -->
+<div id="delete-album-size-dialog" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div id="createAlbum" class="modal-content popup clearfix">
+    	<div class="modal-body">
+			<h3 class="red text">Delete</h3>
+				<form id="delete_album_size" action="/photo_library/sizes/deleteAlbumSize" method="POST">
+					<input type="hidden" name="size_id" value="">
+					<div class="mVm clearfix">
+						<span>Are you sure you want to delete this size group? All image in this group will also deleted?</span>
+					</div>
+					<div class="fright mBm mTl">
+						<input class="btn fleft mRxs " type="submit" name="delete_album_size" value="DELETE">
+						<span class="btn pointer  fleft " data-dismiss="modal" title="cancel">CANCEL</span>
+					</div>
+				</form>
+    	</div>
+    </div>
+  </div>
+</div>

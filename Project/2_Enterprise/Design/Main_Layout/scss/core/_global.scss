@@ -1,0 +1,27 @@
+//** for reference go to http://sass-lang.com ***********************************************************************//
+  
+// @import is static therefore variable can't be used to specify directories
+$project        :'core4_blank' !default;
+
+$root_path      : 'C:/WORKSPACE/' !default;
+
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/settings';
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/images';
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/constants';
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/colorschemes';
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/gradients';
+
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/core/mixins';
+@import 'C:/WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/sprites';
+
+//used for mac path
+// $root_path      : '/Users/ryeona/Documents//WORKSPACE/' !default;
+// 
+// @import '/Users/ryeona/Documents//WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/settings';
+// @import '/Users/ryeona/Documents//WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/images';
+// @import '/Users/ryeona/Documents//WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/constants';
+// @import '/Users/ryeona/Documents//WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/colorschemes';
+// @import '/Users/ryeona/Documents//WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/gradients';
+// 
+// @import '/Users/ryeona/Documents//WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/core/mixins';
+// @import '/Users/ryeona/Documents//WORKSPACE/core4_blank/Project/2_Enterprise/Design/Main_Layout/scss/base/sprites';

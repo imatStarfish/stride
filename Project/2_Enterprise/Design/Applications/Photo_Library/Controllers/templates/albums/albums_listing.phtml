@@ -1,0 +1,18 @@
+<div class="clearfix col-xs-12 pBxl">
+	<?foreach($this->getArrayOfAlbums() as $album):?>
+		<div id="album_<?=$album["album_id"]?>" class="fleft mBl">
+			<div class="posRel">
+				<a href="/photo_library/images/view?album_id=<?=$album["album_id"]?>">
+				<span id="albumThumb" class="photoThumbnail lazy" style="background-image:url('/Data/Images/<?=$album["album_folder"]?>/<?=$album["dimensions"]?>_thumb/<?=$album["path"]?>')"></span>
+				<span class="photoThumbnail rotateThumb"></span>
+				</a>
+			</div>
+			<h1 class="albumTittle"><?=$album["album_title"]?></h1>
+			<hr class="albumHr">
+			<div class="albumOptions fright">
+				<a href="#" class="edit_album glyphicon glyphicon-edit" title="Edit Image" data-album_title="<?=$album["album_title"]?>" data-album_id="<?=$album["album_id"]?>" data-toggle="modal" data-target="#edit_album_dialog"></a>
+				<a href="#" class="delete_album glyphicon glyphicon-trash" title="Delete Image" data-album_id="<?=$album["album_id"]?>" data-toggle="modal" data-target="#delete_album_dialog"></a>
+			</div>
+		</div>
+	<?endforeach?>
+</div>

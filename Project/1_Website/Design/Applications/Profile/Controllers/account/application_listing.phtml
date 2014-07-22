@@ -1,0 +1,36 @@
+<h3>Applications</h3>
+
+<div class="clearfix mTxl mBxl">
+	<table class="col-xs-8">
+		<thead>
+			<tr>
+				<td>Application Name</td>
+				<td>Date Started</td>
+				<td>Date Ended</td>
+				<td>Last Modified</td>
+			</tr>
+		</thead>
+		<tbody>
+			<?php if($this->applications):?>
+			<?php foreach($this->applications as $application):?>
+			<tr>
+				<td>
+					<a href="/profile/applications?app_id=<?php echo $application["application_id"]?>">
+						<?php echo $application["application_type"]?>
+					</a>
+				</td>
+				<td>
+					<?php echo $application["date_started"]?>
+				</td>
+				<td>
+					<?php echo $application["date_ended"]?>
+				</td>
+				<td>
+					<?php echo $application["last_modified"]?>
+				</td>
+			</tr>
+			<?php endforeach?>
+			<?php endif?>
+		</tbody>
+	</table>
+</div>

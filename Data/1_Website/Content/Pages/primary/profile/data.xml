@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<data>
+	<metadata>
+		<page_title_element>.</page_title_element>
+		<meta_description>.</meta_description>
+	</metadata>
+	
+	<image id="">
+		<alternative_text>Default Title.</alternative_text>
+		<path>imat_album/500x600/d2845f98ba488b192eaa5260f50261ad7fee4d8c.jpg</path>
+		<thumbnail_path>imat_album/500x600_thumb/d2845f98ba488b192eaa5260f50261ad7fee4d8c.jpg</thumbnail_path>
+		<height>600</height>
+		<width>500</width>
+		<caption>Default image caption.</caption>
+	</image>
+	<image id="">
+		<alternative_text>Default Title.</alternative_text>
+		<path>test_album/600x600/24d4ba55df2b190e50e4f06bbc54135f32d4f0ff.jpg</path>
+		<thumbnail_path>test_album/600x600_thumb/24d4ba55df2b190e50e4f06bbc54135f32d4f0ff.jpg</thumbnail_path>
+		<height>600</height>
+		<width>600</width>
+		<caption>Default image caption.</caption>
+	</image>
+	
+	<page_content_editor>.</page_content_editor>
+</data>
